@@ -12,4 +12,9 @@ config_version=5
 
 config/name="Team_Two_Game_Group_C"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+gamemanager="*res://Scripts/gamemanager.gd"
+audiomanager="*res://Scripts/audiomanager.gd"
