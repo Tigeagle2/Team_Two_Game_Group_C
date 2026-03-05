@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://161xxu7uhjsu"]
+[gd_scene load_steps=4 format=3 uid="uid://161xxu7uhjsu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1txiasyibnc" path="res://Scenes/player.tscn" id="1_52fb6"]
+[ext_resource type="PackedScene" uid="uid://cd3cj8nuheov4" path="res://Scenes/street_light.tscn" id="2_6l7je"]
+[ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="3_jv6wh"]
 
 [node name="main_scene" type="Node2D"]
 
+[node name="streetlights" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="street_light" parent="streetlights" instance=ExtResource("2_6l7je")]
+position = Vector2(405, 312)
+
+[node name="temp_icon" type="Sprite2D" parent="."]
+position = Vector2(393, 312.00003)
+scale = Vector2(3.453125, 3.453125)
+texture = ExtResource("3_jv6wh")
+
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(306, 316)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(429, 308)
+color = Color(0.58103293, 0.581033, 0.58103275, 1)

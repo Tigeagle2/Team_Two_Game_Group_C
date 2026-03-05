@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd3cj8nuheov4"]
+
+[sub_resource type="Gradient" id="Gradient_jxu3s"]
+interpolation_mode = 1
+colors = PackedColorArray(0.9428228, 0.94282264, 0.94282264, 1, 0.21209751, 0.21209751, 0.21209751, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gb51c"]
+gradient = SubResource("Gradient_jxu3s")
+width = 66
+height = 66
+fill = 1
+fill_from = Vector2(0.45794392, 0.5186916)
+fill_to = Vector2(0.1635514, 0.22167055)
+
+[node name="street_light" type="PointLight2D"]
+scale = Vector2(6.340199, 6.1562495)
+color = Color(1, 1, 0.5516501, 1)
+energy = 0.53
+texture = SubResource("GradientTexture2D_gb51c")
