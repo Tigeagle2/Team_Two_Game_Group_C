@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbyjsy2518063"]
+
+[ext_resource type="Script" uid="uid://dngq6hk2w0o56" path="res://Scripts/car_spawner.gd" id="1_hinyd"]
+
+[node name="car_spawner" type="Area2D"]
+script = ExtResource("1_hinyd")

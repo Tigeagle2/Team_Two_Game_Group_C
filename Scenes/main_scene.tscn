@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://161xxu7uhjsu"]
+[gd_scene load_steps=5 format=3 uid="uid://161xxu7uhjsu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1txiasyibnc" path="res://Scenes/player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://cd3cj8nuheov4" path="res://Scenes/street_light.tscn" id="2_6l7je"]
 [ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="3_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://cbyjsy2518063" path="res://Scenes/car_spawner.tscn" id="4_x6ack"]
 
 [node name="main_scene" type="Node2D"]
 
@@ -18,8 +19,11 @@ scale = Vector2(3.453125, 3.453125)
 texture = ExtResource("3_jv6wh")
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
-position = Vector2(306, 316)
+position = Vector2(452, 258)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(429, 308)
 color = Color(0.58103293, 0.581033, 0.58103275, 1)
+
+[node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
+position = Vector2(-164, 264)
