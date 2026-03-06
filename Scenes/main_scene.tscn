@@ -27,3 +27,4 @@ color = Color(0.58103293, 0.581033, 0.58103275, 1)
 
 [node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
 position = Vector2(-164, 264)
+direction = "SOUTH"
