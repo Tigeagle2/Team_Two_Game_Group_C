@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d11q6c75rbchr"]
 
 [ext_resource type="Script" uid="uid://dbb635aqiu4ia" path="res://Scripts/car.gd" id="1_go66d"]
-[ext_resource type="Texture2D" uid="uid://d4icev453luho" path="res://Assets/car.png" id="2_go66d"]
+[ext_resource type="Texture2D" uid="uid://bis8vumkt8j6c" path="res://Assets/sprites/CarW.png" id="2_1sfmx"]
 [ext_resource type="Texture2D" uid="uid://dpgt2k2a5kddj" path="res://Assets/headlight.png" id="3_1sfmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go66d"]
@@ -18,7 +18,7 @@ rect = Rect2(-62.98413, -170.66667, 125.96826, 341.33334)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.07380952, 0.07380952)
-texture = ExtResource("2_go66d")
+texture = ExtResource("2_1sfmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_go66d")
@@ -29,6 +29,7 @@ scale = Vector2(0.4921875, 0.18750001)
 
 [node name="headlight_top" type="PointLight2D" parent="headlights"]
 scale = Vector2(0.99999994, 0.99999994)
+color = Color(1, 1, 0.5529412, 1)
 blend_mode = 2
 shadow_item_cull_mask = 3
 texture = ExtResource("3_1sfmx")
@@ -36,5 +37,6 @@ texture = ExtResource("3_1sfmx")
 [node name="headlight_bottom" type="PointLight2D" parent="headlights"]
 position = Vector2(-1.5258789e-05, 154.66669)
 scale = Vector2(0.9999999, 0.9999999)
+color = Color(1, 1, 0.5529412, 1)
 blend_mode = 2
 texture = ExtResource("3_1sfmx")

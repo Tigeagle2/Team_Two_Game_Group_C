@@ -16,12 +16,12 @@ position = Vector2(452, 258)
 metadata/_edit_lock_ = true
 
 [node name="street_light" parent="streetlights" instance=ExtResource("2_6l7je")]
-position = Vector2(405, 312)
+position = Vector2(488, 935)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(429, 308)
 color = Color(0.58103293, 0.581033, 0.58103275, 1)
 
 [node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
-position = Vector2(-164, 264)
+position = Vector2(-22, 926)
 direction = "EAST"
