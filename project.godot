@@ -20,6 +20,10 @@ config/icon="res://Assets/icon.svg"
 gamemanager="*res://Scripts/autoload/gamemanager.gd"
 audiomanager="*res://Scenes/audiomanager.tscn"
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_accept={

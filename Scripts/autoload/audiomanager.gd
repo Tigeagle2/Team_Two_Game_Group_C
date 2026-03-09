@@ -10,24 +10,17 @@ var next_player_index: int = 0
 var sound_history: Dictionary = {} 
 
 func _ready() -> void:
-	# Initialize the pool
 	for i in range(pool_size):
 		var p = AudioStreamPlayer.new()
 		p.bus = "Sound Effects" 
 		add_child(p)
 		sfx_pool.append(p)
-
-## --- Music ---
-
 func play_music(stream: AudioStream):
 	if music_player.stream == stream and music_player.playing:
 		return 
 	music_player.stream = stream
 	music_player.play()
-
-## --- Sound Effects ---
-
-func play_sound_effect(stream: AudioStream):
+func play_sound_effect(stream: AudioStream, pitch: float = 1.0, additonal_volume: float = 0):
 	if not stream: return
 
 	var now = Time.get_ticks_msec() / 1000.0
@@ -47,5 +40,7 @@ func play_sound_effect(stream: AudioStream):
 	
 	var player = sfx_pool[next_player_index]
 	player.stream = stream
+	player.pitch_scale = pitch
+	player.volume_db += additonal_volume
 	player.play()
 	next_player_index = (next_player_index + 1) % pool_size

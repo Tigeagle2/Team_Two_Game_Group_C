@@ -5,38 +5,59 @@
 [ext_resource type="Texture2D" uid="uid://dpgt2k2a5kddj" path="res://Assets/headlight.png" id="3_1sfmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go66d"]
-size = Vector2(62, 64)
+size = Vector2(61.068336, 64)
 
 [node name="car" type="Area2D"]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_go66d")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(0.49218747, 0.1875)
-rect = Rect2(-62.98413, -170.66667, 125.96826, 341.33334)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.07380952, 0.07380952)
+scale = Vector2(0.108641975, 0.10864198)
 texture = ExtResource("2_1sfmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_go66d")
 
 [node name="headlights" type="Node2D" parent="."]
-position = Vector2(189, -13.000002)
+position = Vector2(-1.5258789e-05, 1.8189894e-12)
+rotation = 3.1415927
 scale = Vector2(0.4921875, 0.18750001)
 
 [node name="headlight_top" type="PointLight2D" parent="headlights"]
+position = Vector2(62.98413, -53.333374)
 scale = Vector2(0.99999994, 0.99999994)
 color = Color(1, 1, 0.5529412, 1)
 blend_mode = 2
+shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("3_1sfmx")
+offset = Vector2(317.365, 0)
 
 [node name="headlight_bottom" type="PointLight2D" parent="headlights"]
-position = Vector2(-1.5258789e-05, 154.66669)
+position = Vector2(62.98416, 42.666595)
 scale = Vector2(0.9999999, 0.9999999)
 color = Color(1, 1, 0.5529412, 1)
 blend_mode = 2
+shadow_enabled = true
+shadow_item_cull_mask = 3
 texture = ExtResource("3_1sfmx")
+offset = Vector2(317.365, 0)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="headlights"]
+position = Vector2(698.9206, -0.00016021729)
+rotation = 3.1415925
+scale = Vector2(0.9999999, 0.9999999)
+rect = Rect2(-62.98413, -170.66667, 825.72363, 341.33334)
+
+[node name="honk_area" type="Area2D" parent="."]
+scale = Vector2(1.81, 1)
+collision_mask = 3
+
+[node name="honk_collision_shape" type="CollisionShape2D" parent="honk_area"]
+position = Vector2(-53.591156, 0)
+scale = Vector2(1.2, 0.665)
+shape = SubResource("RectangleShape2D_go66d")
+
+[connection signal="screen_entered" from="headlights/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="body_entered" from="honk_area" to="." method="_on_honk_area_body_entered"]

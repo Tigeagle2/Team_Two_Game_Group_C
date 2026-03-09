@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc1txiasyibnc"]
+[gd_scene load_steps=6 format=3 uid="uid://dc1txiasyibnc"]
 
 [ext_resource type="Script" uid="uid://d2yu0wxtuhxtc" path="res://Scripts/player_movement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="1_v0iea"]
@@ -7,7 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(34, 34)
 
-[node name="player" type="CharacterBody2D"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6t5aa"]
+polygon = PackedVector2Array(17, -17, 17, 17, -17, 17, -17, -17)
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
 light_mask = 3
 collision_layer = 2
 script = ExtResource("1_cvnsp")
@@ -22,3 +25,6 @@ texture = ExtResource("1_v0iea")
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_6t5aa")

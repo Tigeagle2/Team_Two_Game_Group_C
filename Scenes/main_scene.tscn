@@ -10,7 +10,7 @@
 [node name="level_tile_map" parent="." instance=ExtResource("2_x6ack")]
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
-position = Vector2(452, 258)
+position = Vector2(1313, 965)
 
 [node name="streetlights" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -23,5 +23,5 @@ position = Vector2(429, 308)
 color = Color(0.58103293, 0.581033, 0.58103275, 1)
 
 [node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
-position = Vector2(-22, 926)
+position = Vector2(33, 969)
 direction = "EAST"
