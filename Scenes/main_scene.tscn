@@ -8,6 +8,7 @@
 [node name="main_scene" type="Node2D"]
 
 [node name="streetlights" type="Node2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="street_light" parent="streetlights" instance=ExtResource("2_6l7je")]
@@ -27,4 +28,4 @@ color = Color(0.58103293, 0.581033, 0.58103275, 1)
 
 [node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
 position = Vector2(-164, 264)
-direction = "SOUTH"
+direction = "EAST"
