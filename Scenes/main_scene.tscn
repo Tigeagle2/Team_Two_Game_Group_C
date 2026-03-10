@@ -1,13 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://161xxu7uhjsu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1txiasyibnc" path="res://Scenes/player.tscn" id="1_52fb6"]
+[ext_resource type="PackedScene" uid="uid://bh3ey4etesspg" path="res://Scenes/level.tscn" id="1_x6ack"]
 [ext_resource type="PackedScene" uid="uid://cd3cj8nuheov4" path="res://Scenes/street_light.tscn" id="2_6l7je"]
-[ext_resource type="PackedScene" uid="uid://711wp2757slc" path="res://Scenes/level_tile_map.tscn" id="2_x6ack"]
 [ext_resource type="PackedScene" uid="uid://cbyjsy2518063" path="res://Scenes/car_spawner.tscn" id="4_x6ack"]
 
 [node name="main_scene" type="Node2D"]
-
-[node name="level_tile_map" parent="." instance=ExtResource("2_x6ack")]
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(1313, 965)
@@ -23,5 +21,8 @@ position = Vector2(429, 308)
 color = Color(0.58103293, 0.581033, 0.58103275, 1)
 
 [node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
-position = Vector2(33, 969)
+position = Vector2(-1316, 33)
 direction = "EAST"
+
+[node name="Level" parent="." instance=ExtResource("1_x6ack")]
+show_behind_parent = true
