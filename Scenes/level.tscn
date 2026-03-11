@@ -1,42 +1,48 @@
-[gd_scene load_steps=42 format=4 uid="uid://bh3ey4etesspg"]
+[gd_scene load_steps=45 format=4 uid="uid://bh3ey4etesspg"]
 
 [ext_resource type="Texture2D" uid="uid://c0xkdcbp471w1" path="res://Assets/tilemap_packed.png" id="1_tumq0"]
-[ext_resource type="Texture2D" uid="uid://cp4lnwtonitgp" path="res://Assets/zombie/attack_1.png" id="2_bp4cd"]
-[ext_resource type="Texture2D" uid="uid://rpkcbcjq3crc" path="res://Assets/zombie/attack_2.png" id="3_d3deu"]
-[ext_resource type="Texture2D" uid="uid://5qtimbffwaqj" path="res://Assets/zombie/attack_3.png" id="4_csjfj"]
-[ext_resource type="Texture2D" uid="uid://b38vknoyyi1jx" path="res://Assets/zombie/attack_4.png" id="5_nkhef"]
-[ext_resource type="Texture2D" uid="uid://ck5d1u1krjtm" path="res://Assets/zombie/attack_5.png" id="6_fmtd1"]
-[ext_resource type="Texture2D" uid="uid://cvxuogy5e0wvr" path="res://Assets/zombie/attack_6.png" id="7_5o4ln"]
-[ext_resource type="Texture2D" uid="uid://b8ameephkq3ke" path="res://Assets/zombie/attack_7.png" id="8_ag4x3"]
-[ext_resource type="Texture2D" uid="uid://dgfbqk3gvd34j" path="res://Assets/zombie/attack_8.png" id="9_maxl3"]
-[ext_resource type="Texture2D" uid="uid://cnp78lmlddlrd" path="res://Assets/zombie/attack_9.png" id="10_md013"]
-[ext_resource type="Texture2D" uid="uid://c0g3d6fuyxv35" path="res://Assets/zombie/attack_10.png" id="11_ogdfn"]
-[ext_resource type="Texture2D" uid="uid://bbrquwfost33c" path="res://Assets/zombie/chase_1.png" id="12_l1uqm"]
-[ext_resource type="Texture2D" uid="uid://drnmq10qp2cvp" path="res://Assets/zombie/chase_2.png" id="13_gx30c"]
-[ext_resource type="Texture2D" uid="uid://c3apnyd43me05" path="res://Assets/zombie/chase_3.png" id="14_jmchl"]
-[ext_resource type="Texture2D" uid="uid://bwmmk8s2xwct0" path="res://Assets/zombie/chase_4.png" id="15_s14gf"]
-[ext_resource type="Texture2D" uid="uid://tlafaa5dm7a7" path="res://Assets/zombie/chase_5.png" id="16_cpxpw"]
-[ext_resource type="Texture2D" uid="uid://c0hh7vdyipjft" path="res://Assets/zombie/chase_6.png" id="17_wbq00"]
-[ext_resource type="Texture2D" uid="uid://c6mbx6203bwu2" path="res://Assets/zombie/chase_7.png" id="18_dx6so"]
-[ext_resource type="Texture2D" uid="uid://dv31h7atdgumb" path="res://Assets/zombie/chase_8.png" id="19_54tli"]
-[ext_resource type="Texture2D" uid="uid://ciy4sf5ovl145" path="res://Assets/zombie/death_1.png" id="20_8huh7"]
-[ext_resource type="Texture2D" uid="uid://cywcygijfsnh6" path="res://Assets/zombie/death_2.png" id="21_2veds"]
-[ext_resource type="Texture2D" uid="uid://ct1gwtcc05uq4" path="res://Assets/zombie/death_3.png" id="22_m4bds"]
-[ext_resource type="Texture2D" uid="uid://nk3ric7ppts0" path="res://Assets/zombie/death_4.png" id="23_t4ggf"]
-[ext_resource type="Texture2D" uid="uid://dd06aajdl8qxs" path="res://Assets/zombie/death_5.png" id="24_uoc0b"]
-[ext_resource type="Texture2D" uid="uid://y63cbxa8e2dj" path="res://Assets/zombie/death_6.png" id="25_2lp24"]
-[ext_resource type="Texture2D" uid="uid://7atouod2e24s" path="res://Assets/zombie/destroy_1.png" id="26_v15qs"]
-[ext_resource type="Texture2D" uid="uid://c8i7gou8dhsaf" path="res://Assets/zombie/destroy_2.png" id="27_ubg6v"]
-[ext_resource type="Texture2D" uid="uid://ceah8amrqg8da" path="res://Assets/zombie/destroy_3.png" id="28_ht0u2"]
-[ext_resource type="Texture2D" uid="uid://4ursyyihu8uh" path="res://Assets/zombie/destroy_4.png" id="29_23rfw"]
-[ext_resource type="Texture2D" uid="uid://bifjwj33484dx" path="res://Assets/zombie/destroy_5.png" id="30_icsqr"]
-[ext_resource type="Texture2D" uid="uid://c1ncgdamrwp7o" path="res://Assets/zombie/destroy_6.png" id="31_5oihu"]
-[ext_resource type="Texture2D" uid="uid://dsgglg3o52ts7" path="res://Assets/zombie/destroy_7.png" id="32_16bfe"]
-[ext_resource type="Texture2D" uid="uid://dma8e0i1uh17e" path="res://Assets/zombie/destroy_8.png" id="33_6g3im"]
-[ext_resource type="Texture2D" uid="uid://cqk28bryxluc" path="res://Assets/zombie/idle_1.png" id="34_w8uds"]
-[ext_resource type="Texture2D" uid="uid://b6f6joxajwlri" path="res://Assets/zombie/idle_2.png" id="35_uty0w"]
-[ext_resource type="Texture2D" uid="uid://bg3brx6kle4nw" path="res://Assets/zombie/idle_3.png" id="36_8rl1s"]
-[ext_resource type="Texture2D" uid="uid://b82cmbym7yrim" path="res://Assets/zombie/idle_4.png" id="37_y6tmo"]
+[ext_resource type="Texture2D" uid="uid://cp4lnwtonitgp" path="res://Assets/sprites/zombie/attack_1.png" id="2_bp4cd"]
+[ext_resource type="Texture2D" uid="uid://rpkcbcjq3crc" path="res://Assets/sprites/zombie/attack_2.png" id="3_d3deu"]
+[ext_resource type="Texture2D" uid="uid://5qtimbffwaqj" path="res://Assets/sprites/zombie/attack_3.png" id="4_csjfj"]
+[ext_resource type="Texture2D" uid="uid://b38vknoyyi1jx" path="res://Assets/sprites/zombie/attack_4.png" id="5_nkhef"]
+[ext_resource type="Texture2D" uid="uid://ck5d1u1krjtm" path="res://Assets/sprites/zombie/attack_5.png" id="6_fmtd1"]
+[ext_resource type="Texture2D" uid="uid://cvxuogy5e0wvr" path="res://Assets/sprites/zombie/attack_6.png" id="7_5o4ln"]
+[ext_resource type="Texture2D" uid="uid://b8ameephkq3ke" path="res://Assets/sprites/zombie/attack_7.png" id="8_ag4x3"]
+[ext_resource type="Texture2D" uid="uid://dgfbqk3gvd34j" path="res://Assets/sprites/zombie/attack_8.png" id="9_maxl3"]
+[ext_resource type="Texture2D" uid="uid://cnp78lmlddlrd" path="res://Assets/sprites/zombie/attack_9.png" id="10_md013"]
+[ext_resource type="Texture2D" uid="uid://c0g3d6fuyxv35" path="res://Assets/sprites/zombie/attack_10.png" id="11_ogdfn"]
+[ext_resource type="Texture2D" uid="uid://bbrquwfost33c" path="res://Assets/sprites/zombie/chase_1.png" id="12_l1uqm"]
+[ext_resource type="Texture2D" uid="uid://drnmq10qp2cvp" path="res://Assets/sprites/zombie/chase_2.png" id="13_gx30c"]
+[ext_resource type="Texture2D" uid="uid://c3apnyd43me05" path="res://Assets/sprites/zombie/chase_3.png" id="14_jmchl"]
+[ext_resource type="Texture2D" uid="uid://bwmmk8s2xwct0" path="res://Assets/sprites/zombie/chase_4.png" id="15_s14gf"]
+[ext_resource type="Texture2D" uid="uid://tlafaa5dm7a7" path="res://Assets/sprites/zombie/chase_5.png" id="16_cpxpw"]
+[ext_resource type="Texture2D" uid="uid://c0hh7vdyipjft" path="res://Assets/sprites/zombie/chase_6.png" id="17_wbq00"]
+[ext_resource type="Texture2D" uid="uid://c6mbx6203bwu2" path="res://Assets/sprites/zombie/chase_7.png" id="18_dx6so"]
+[ext_resource type="Texture2D" uid="uid://dv31h7atdgumb" path="res://Assets/sprites/zombie/chase_8.png" id="19_54tli"]
+[ext_resource type="Texture2D" uid="uid://ciy4sf5ovl145" path="res://Assets/sprites/zombie/death_1.png" id="20_8huh7"]
+[ext_resource type="Texture2D" uid="uid://cywcygijfsnh6" path="res://Assets/sprites/zombie/death_2.png" id="21_2veds"]
+[ext_resource type="Texture2D" uid="uid://ct1gwtcc05uq4" path="res://Assets/sprites/zombie/death_3.png" id="22_m4bds"]
+[ext_resource type="Texture2D" uid="uid://nk3ric7ppts0" path="res://Assets/sprites/zombie/death_4.png" id="23_t4ggf"]
+[ext_resource type="Texture2D" uid="uid://dd06aajdl8qxs" path="res://Assets/sprites/zombie/death_5.png" id="24_uoc0b"]
+[ext_resource type="Texture2D" uid="uid://y63cbxa8e2dj" path="res://Assets/sprites/zombie/death_6.png" id="25_2lp24"]
+[ext_resource type="Texture2D" uid="uid://7atouod2e24s" path="res://Assets/sprites/zombie/destroy_1.png" id="26_v15qs"]
+[ext_resource type="Texture2D" uid="uid://c8i7gou8dhsaf" path="res://Assets/sprites/zombie/destroy_2.png" id="27_ubg6v"]
+[ext_resource type="Texture2D" uid="uid://ceah8amrqg8da" path="res://Assets/sprites/zombie/destroy_3.png" id="28_ht0u2"]
+[ext_resource type="Texture2D" uid="uid://4ursyyihu8uh" path="res://Assets/sprites/zombie/destroy_4.png" id="29_23rfw"]
+[ext_resource type="Texture2D" uid="uid://bifjwj33484dx" path="res://Assets/sprites/zombie/destroy_5.png" id="30_icsqr"]
+[ext_resource type="Texture2D" uid="uid://c1ncgdamrwp7o" path="res://Assets/sprites/zombie/destroy_6.png" id="31_5oihu"]
+[ext_resource type="Texture2D" uid="uid://dsgglg3o52ts7" path="res://Assets/sprites/zombie/destroy_7.png" id="32_16bfe"]
+[ext_resource type="Texture2D" uid="uid://dma8e0i1uh17e" path="res://Assets/sprites/zombie/destroy_8.png" id="33_6g3im"]
+[ext_resource type="Texture2D" uid="uid://cqk28bryxluc" path="res://Assets/sprites/zombie/idle_1.png" id="34_w8uds"]
+[ext_resource type="Texture2D" uid="uid://b6f6joxajwlri" path="res://Assets/sprites/zombie/idle_2.png" id="35_uty0w"]
+[ext_resource type="Texture2D" uid="uid://bg3brx6kle4nw" path="res://Assets/sprites/zombie/idle_3.png" id="36_8rl1s"]
+[ext_resource type="Texture2D" uid="uid://b82cmbym7yrim" path="res://Assets/sprites/zombie/idle_4.png" id="37_y6tmo"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bp4cd"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d3deu"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_csjfj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btda1"]
 texture = ExtResource("1_tumq0")
@@ -189,8 +195,10 @@ texture = ExtResource("1_tumq0")
 35:3/0 = 0
 36:3/0 = 0
 0:4/0 = 0
+0:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 1:4/0 = 0
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:4/0 = 0
 4:4/0 = 0
 5:4/0 = 0
@@ -226,9 +234,17 @@ texture = ExtResource("1_tumq0")
 35:4/0 = 0
 36:4/0 = 0
 0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 2:5/0 = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 4:5/0 = 0
 5:5/0 = 0
 6:5/0 = 0
@@ -263,9 +279,17 @@ texture = ExtResource("1_tumq0")
 35:5/0 = 0
 36:5/0 = 0
 0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 4:6/0 = 0
 5:6/0 = 0
 6:6/0 = 0
@@ -300,9 +324,17 @@ texture = ExtResource("1_tumq0")
 35:6/0 = 0
 36:6/0 = 0
 0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 2:7/0 = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 4:7/0 = 0
 5:7/0 = 0
 6:7/0 = 0
@@ -337,9 +369,17 @@ texture = ExtResource("1_tumq0")
 35:7/0 = 0
 36:7/0 = 0
 0:8/0 = 0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 2:8/0 = 0
+2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 3:8/0 = 0
+3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d3deu")
 4:8/0 = 0
 5:8/0 = 0
 6:8/0 = 0
@@ -374,9 +414,17 @@ texture = ExtResource("1_tumq0")
 35:8/0 = 0
 36:8/0 = 0
 0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 3:9/0 = 0
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 4:9/0 = 0
 5:9/0 = 0
 6:9/0 = 0
@@ -411,9 +459,17 @@ texture = ExtResource("1_tumq0")
 35:9/0 = 0
 36:9/0 = 0
 0:10/0 = 0
+0:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 2:10/0 = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 3:10/0 = 0
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:10/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 4:10/0 = 0
 5:10/0 = 0
 6:10/0 = 0
@@ -448,9 +504,17 @@ texture = ExtResource("1_tumq0")
 35:10/0 = 0
 36:10/0 = 0
 0:11/0 = 0
+0:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 1:11/0 = 0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 2:11/0 = 0
+2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 3:11/0 = 0
+3:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 4:11/0 = 0
 5:11/0 = 0
 6:11/0 = 0
@@ -485,9 +549,17 @@ texture = ExtResource("1_tumq0")
 35:11/0 = 0
 36:11/0 = 0
 0:12/0 = 0
+0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 1:12/0 = 0
+1:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 2:12/0 = 0
+2:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 3:12/0 = 0
+3:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bp4cd")
 4:12/0 = 0
 5:12/0 = 0
 6:12/0 = 0
@@ -624,7 +696,10 @@ texture = ExtResource("1_tumq0")
 26:15/0 = 0
 27:15/0 = 0
 28:15/0 = 0
+28:15/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_csjfj")
 29:15/0 = 0
+29:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+29:15/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_csjfj")
 30:15/0 = 0
 31:15/0 = 0
 32:15/0 = 0
@@ -662,6 +737,8 @@ texture = ExtResource("1_tumq0")
 27:16/0 = 0
 28:16/0 = 0
 29:16/0 = 0
+29:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+29:16/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_csjfj")
 30:16/0 = 0
 31:16/0 = 0
 32:16/0 = 0
@@ -699,6 +776,8 @@ texture = ExtResource("1_tumq0")
 27:17/0 = 0
 28:17/0 = 0
 29:17/0 = 0
+29:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+29:17/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_csjfj")
 30:17/0 = 0
 31:17/0 = 0
 32:17/0 = 0
@@ -1080,6 +1159,7 @@ texture = ExtResource("1_tumq0")
 [sub_resource type="TileSet" id="TileSet_xq3o0"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_btda1")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1wnhp"]
@@ -1234,7 +1314,6 @@ tile_map_data = PackedByteArray("AADq//D/AAACAAYAAADq//H/AAACAAkAAADq//L/AAACAAk
 tile_set = SubResource("TileSet_xq3o0")
 
 [node name="Zombie" type="CharacterBody2D" parent="."]
-collision_layer = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Zombie"]
 sprite_frames = SubResource("SpriteFrames_1wnhp")
