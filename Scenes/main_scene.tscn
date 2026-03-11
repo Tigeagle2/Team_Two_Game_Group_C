@@ -1,16 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://161xxu7uhjsu"]
+[gd_scene load_steps=6 format=3 uid="uid://161xxu7uhjsu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1txiasyibnc" path="res://Scenes/player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://bh3ey4etesspg" path="res://Scenes/level.tscn" id="1_x6ack"]
-[ext_resource type="PackedScene" uid="uid://cd3cj8nuheov4" path="res://Scenes/street_light.tscn" id="2_6l7je"]
+[ext_resource type="PackedScene" uid="uid://cilxrskorn2c2" path="res://Scenes/basic_enemy_spawner.tscn" id="4_iacmt"]
 [ext_resource type="PackedScene" uid="uid://cbyjsy2518063" path="res://Scenes/car_spawner.tscn" id="4_x6ack"]
-[ext_resource type="PackedScene" uid="uid://bab8trh1whf5t" path="res://Scenes/basic_enemy.tscn" id="5_iacmt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6ev3c"]
-vertices = PackedVector2Array(-650, -298, -662, -298, -662, -310, -650, -310, -490, -298, -502, -298, -502, -310, -490, -310, -650, -426, -662, -426, -662, -438, -650, -438, -490, -426, -502, -426, -502, -438, -490, -438, -406, -118, -406, -554, 1399.0313, -888, 1403.9688, 1042.0078, -1333.0078, -888, -746, -554, -1333.9922, 1045.9766, -746, -118)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 18, 17, 21), PackedInt32Array(22, 20, 21, 23), PackedInt32Array(19, 22, 23, 16)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1343, -898, -1344, 1056, 1414, 1052, 1409, -898)])
-agent_radius = 32.0
+vertices = PackedVector2Array(1363, -851, 1325, 499, 947, 499, -371, -83, -371, -589, 1363, 1011, 1325, 973, -1299, 1011, 947, 973, 685, 973, 307, 973, -1299, -851, -781, -589, 307, 499, -627, 621, -627, 307, -1069, 621, -1069, 307, -1101, -83, -781, -83, -819, -83, -819, -429, 685, 499, -1101, -429)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 5, 6, 1), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 8, 7), PackedInt32Array(10, 9, 7), PackedInt32Array(11, 0, 4, 12), PackedInt32Array(13, 10, 14, 15, 3), PackedInt32Array(14, 10, 7, 16), PackedInt32Array(17, 16, 7, 11, 18), PackedInt32Array(12, 19, 20, 21), PackedInt32Array(2, 8, 9, 22), PackedInt32Array(3, 2, 22), PackedInt32Array(3, 22, 13), PackedInt32Array(19, 3, 15, 17), PackedInt32Array(20, 19, 17), PackedInt32Array(18, 20, 17), PackedInt32Array(23, 18, 11), PackedInt32Array(23, 11, 12, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1344, -896, -1344, 1056, 1408, 1056, 1408, -896)])
+agent_radius = 45.0
 
 [node name="main_scene" type="Node2D"]
 
@@ -23,19 +22,14 @@ show_behind_parent = true
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(1313, 965)
 
-[node name="streetlights" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="street_light" parent="streetlights" instance=ExtResource("2_6l7je")]
-position = Vector2(488, 935)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(429, 308)
 color = Color(0.58103293, 0.581033, 0.58103275, 1)
 
+[node name="basic_enemy_spawner" parent="." instance=ExtResource("4_iacmt")]
+position = Vector2(-2, 56)
+enemy_spawn_limit = 10
+
 [node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
 position = Vector2(-1316, 33)
 direction = "EAST"
-
-[node name="basic_enemy" parent="." instance=ExtResource("5_iacmt")]
-position = Vector2(184, 268)
