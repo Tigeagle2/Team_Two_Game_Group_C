@@ -23,6 +23,7 @@ audiomanager="*res://Scenes/audiomanager.tscn"
 [global_group]
 
 player=""
+enemy=""
 
 [input]
 

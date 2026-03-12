@@ -4,6 +4,7 @@ extends Node
 @export var min_interval: float = 0.05  
 
 @onready var music_player = $music_player
+@onready var menu_player = $menu_sound_player
 
 var sfx_pool: Array[AudioStreamPlayer] = []
 var next_player_index: int = 0
@@ -20,6 +21,9 @@ func play_music(stream: AudioStream):
 		return 
 	music_player.stream = stream
 	music_player.play()
+func play_menu_sound(stream: AudioStream):
+	menu_player.stream = stream
+	menu_player.play()
 func play_sound_effect(stream: AudioStream, pitch: float = 1.0, additonal_volume: float = 0):
 	if not stream: return
 

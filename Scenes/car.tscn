@@ -9,7 +9,7 @@ size = Vector2(61.068336, 64)
 
 [node name="car" type="Area2D"]
 collision_layer = 16
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_go66d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -52,6 +52,7 @@ rect = Rect2(-62.98413, -170.66667, 825.72363, 341.33334)
 
 [node name="honk_area" type="Area2D" parent="."]
 scale = Vector2(1.81, 1)
+collision_layer = 0
 collision_mask = 3
 
 [node name="honk_collision_shape" type="CollisionShape2D" parent="honk_area"]
@@ -59,5 +60,6 @@ position = Vector2(-53.591156, 0)
 scale = Vector2(1.2, 0.665)
 shape = SubResource("RectangleShape2D_go66d")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_entered" from="headlights/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="body_entered" from="honk_area" to="." method="_on_honk_area_body_entered"]

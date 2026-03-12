@@ -4,6 +4,7 @@ var direction: String
 const speed: int = 250
 var passing_sound_played: bool = false
 var vertical_texture = preload("res://Assets/sprites/CarN.png")
+var knockback_force: int = 2000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().create_timer(15.0).timeout
@@ -48,3 +49,9 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 func _on_honk_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		audiomanager.play_sound_effect(load("res://Assets/Sound_Effects/Car_Close.mp3"), 1.0 , -10.0)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		var push_direction = (body.global_position - global_position).normalized()
+		body.knockback_velocity = push_direction * knockback_force

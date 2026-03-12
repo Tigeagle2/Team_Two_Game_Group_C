@@ -27,8 +27,6 @@ position = Vector2(429, 308)
 color = Color(0.58103293, 0.581033, 0.58103275, 1)
 
 [node name="basic_enemy_spawner" parent="." instance=ExtResource("4_iacmt")]
-position = Vector2(-2, 56)
-enemy_spawn_limit = 10
 
 [node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
 position = Vector2(-1316, 33)
