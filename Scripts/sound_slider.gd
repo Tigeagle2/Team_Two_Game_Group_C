@@ -13,3 +13,7 @@ func _on_value_changed(value: float):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_drag_ended(value_changed: bool) -> void:
+	audiomanager.play_menu_sound(load("res://Assets/Sound_Effects/Menu_Sound.mp3"))

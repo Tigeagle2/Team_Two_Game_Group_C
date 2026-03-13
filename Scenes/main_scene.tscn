@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dc1txiasyibnc" path="res://Scenes/player.tscn" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://bh3ey4etesspg" path="res://Scenes/level.tscn" id="1_x6ack"]
-[ext_resource type="PackedScene" uid="uid://cilxrskorn2c2" path="res://Scenes/basic_enemy_spawner.tscn" id="4_iacmt"]
+[ext_resource type="PackedScene" uid="uid://cilxrskorn2c2" path="res://Scenes/enemy_spawner.tscn" id="4_iacmt"]
 [ext_resource type="PackedScene" uid="uid://cbyjsy2518063" path="res://Scenes/car_spawner.tscn" id="4_x6ack"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6ev3c"]
@@ -13,21 +13,40 @@ agent_radius = 45.0
 
 [node name="main_scene" type="Node2D"]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(429, 308)
+color = Color(0.32172796, 0.32172796, 0.32172793, 1)
+
+[node name="level" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="level"]
 navigation_polygon = SubResource("NavigationPolygon_6ev3c")
 
-[node name="Level" parent="NavigationRegion2D" instance=ExtResource("1_x6ack")]
+[node name="Level" parent="level/NavigationRegion2D" instance=ExtResource("1_x6ack")]
 show_behind_parent = true
+
+[node name="enemy_spawners" type="Node" parent="level"]
+
+[node name="enemy_spawner" parent="level/enemy_spawners" instance=ExtResource("4_iacmt")]
+selected_enemy = 1
+amount_at_start = 5
+
+[node name="car_spawners" type="Node" parent="level"]
+
+[node name="car_spawner" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+position = Vector2(-1316, 33)
+direction = "EAST"
+
+[node name="car_spawner2" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+position = Vector2(1377, -29)
+direction = "WEST"
+
+[node name="car_spawner3" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+position = Vector2(-35, -838)
+direction = "SOUTH"
+
+[node name="car_spawner4" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+position = Vector2(33, 996)
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(1313, 965)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(429, 308)
-color = Color(0.58103293, 0.581033, 0.58103275, 1)
-
-[node name="basic_enemy_spawner" parent="." instance=ExtResource("4_iacmt")]
-
-[node name="car_spawner" parent="." instance=ExtResource("4_x6ack")]
-position = Vector2(-1316, 33)
-direction = "EAST"

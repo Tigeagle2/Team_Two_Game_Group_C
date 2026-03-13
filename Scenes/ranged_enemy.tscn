@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://df8njpui26xa0"]
+
+[ext_resource type="Script" uid="uid://dufwjot2kp1r6" path="res://Scripts/ranged_enemy.gd" id="1_msnv5"]
+[ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="2_5x7gc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqq2h"]
+size = Vector2(36, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1qm41"]
+radius = 15.033297
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x7gc"]
+size = Vector2(36, 36)
+
+[node name="ranged_enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_msnv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.28124997, 0.28124997)
+texture = ExtResource("2_5x7gc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nqq2h")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_1qm41")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_5x7gc")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

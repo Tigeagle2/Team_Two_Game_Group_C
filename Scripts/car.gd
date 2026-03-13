@@ -4,10 +4,10 @@ var direction: String
 const speed: int = 250
 var passing_sound_played: bool = false
 var vertical_texture = preload("res://Assets/sprites/CarN.png")
-var knockback_force: int = 2000
+var knockback_force: int = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().create_timer(15.0).timeout
+	await get_tree().create_timer(12.0).timeout
 	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

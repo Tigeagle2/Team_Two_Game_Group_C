@@ -1,4 +1,7 @@
 extends Area2D
+enum EnemyType {BasicEnemy, RangedEnemy}
+
+@export var selected_enemy: EnemyType
 ## If true, the spawner is active at all times
 @export var always_active: bool = false
 ## If true, the spawner will use a random spawn system instead of an interval system
@@ -26,18 +29,23 @@ extends Area2D
 ## Chance for an enemy to spawn every time the dice is rolled
 @export_range(0, 100, 0.1, "suffix:%") var spawn_chance: float = 5.0
 
-
+var enemy_scenes = {
+	EnemyType.BasicEnemy: preload("res://Scenes/basic_enemy.tscn"),
+	EnemyType.RangedEnemy: preload("res://Scenes/ranged_enemy.tscn")
+}
 var spawner_active: bool = false
 var spawn_timer
-var enemy_scene = preload("res://Scenes/basic_enemy.tscn")
+var enemy_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	enemy_scene = enemy_scenes[selected_enemy]
 	spawn_enemy(amount_at_start)
 	if random_spawn:
 		spawn_timer = roll_time_gap
 	else:
 		spawn_timer = spawn_interval
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

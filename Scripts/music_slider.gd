@@ -9,7 +9,12 @@ func _on_value_changed(value: float):
 	# value is 0.0 to 1.0 from the slider
 	var db_volume = linear_to_db(value)
 	AudioServer.set_bus_volume_db(bus_index, db_volume)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_drag_ended(value_changed: bool) -> void:
+	audiomanager.play_menu_sound(load("res://Assets/Sound_Effects/Menu_Sound.mp3"))

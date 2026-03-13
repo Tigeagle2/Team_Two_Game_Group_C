@@ -37,4 +37,6 @@ func _close_pause_menu():
 	menu_tween.chain().tween_callback($pause_menu.hide)
 
 func _on_resume_button_pressed() -> void:
+	audiomanager.play_menu_sound(load("res://Assets/Sound_Effects/Menu_Sound.mp3"))
 	_toggle_pause()
+	
