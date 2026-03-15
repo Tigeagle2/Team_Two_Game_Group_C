@@ -15,14 +15,14 @@ enum EnemyType {BasicEnemy, RangedEnemy}
 ## How many enemies spawn at once
 @export var spawn_group_size: int = 1
 ## The amount of enemies that spawn at the start of the game
-@export var amount_at_start: int = 0
+@export var amount_at_start: int = 5
 ## How long after the spawner activates before its spawn logic starts up again
 @export var activation_cooldown: float = 5.0
 ## The amount of pixels the enemys can randomlly spawn in either direction
 @export var enemy_spawn_range: float = 100
 @export_group("Interval Spawning")
 ## Time between spawn attemps
-@export var spawn_interval: float = 10
+@export var spawn_interval: float = 5.0
 @export_group("Random Spawning")
 ## Time between spawn attempts
 @export var roll_time_gap: float = 1.0

@@ -1225,7 +1225,7 @@ tile_set = SubResource("TileSet_xq3o0")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(858, 616)
 scale = Vector2(2, 2)
-color = Color(0.58103293, 0.581033, 0.58103275, 1)
+color = Color(0.32172796, 0.32172796, 0.32172793, 1)
 
 [node name="streetlights" type="Node2D" parent="."]
 scale = Vector2(2, 2)

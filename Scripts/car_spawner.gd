@@ -2,7 +2,7 @@ extends Area2D
 @export_enum("NORTH", "SOUTH", "EAST", "WEST") var direction: String = "NORTH"
 var car_scene = preload("res://Scenes/car.tscn")
 ## Chance the car has of spawning every roll
-@export_range(0, 100, 0.1, "suffix:%") var chance: float = 5.0
+@export_range(0, 100, 0.1, "suffix:%") var chance: float = 2.0
 ## max amount of cars from this spawning alive at once
 @export var car_limit: int = 2
 ## Minumun time between car spawning

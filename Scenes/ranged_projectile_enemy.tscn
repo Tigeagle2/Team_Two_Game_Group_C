@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsscxhde0v5xa"]
+
+[ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="1_2t6rl"]
+[ext_resource type="Script" uid="uid://b5da0em6yq3v4" path="res://Scripts/ranged_projectile_enemy.gd" id="1_jueys"]
+
+[node name="ranged_projectile_enemy" type="Area2D"]
+script = ExtResource("1_jueys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.10937501, 0.10937501)
+texture = ExtResource("1_2t6rl")

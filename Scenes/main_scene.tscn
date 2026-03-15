@@ -13,10 +13,6 @@ agent_radius = 45.0
 
 [node name="main_scene" type="Node2D"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(429, 308)
-color = Color(0.32172796, 0.32172796, 0.32172793, 1)
-
 [node name="level" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="level"]
@@ -29,7 +25,6 @@ show_behind_parent = true
 
 [node name="enemy_spawner" parent="level/enemy_spawners" instance=ExtResource("4_iacmt")]
 selected_enemy = 1
-amount_at_start = 5
 
 [node name="car_spawners" type="Node" parent="level"]
 
