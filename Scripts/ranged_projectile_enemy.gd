@@ -13,7 +13,7 @@ func _ready() -> void:
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
 		can_move = true
-	await get_tree().create_timer(15.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	queue_free()
 	
 	

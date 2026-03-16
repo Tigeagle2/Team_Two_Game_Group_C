@@ -11,13 +11,13 @@ enum EnemyType {BasicEnemy, RangedEnemy}
 ## If true, a full group spawns even if it puts it over the spawn limit. 
 ## If false, the amount of enemies from one spawner will never exced its spawn limit
 @export var group_bypass_limit: bool = false
-@export var enemy_spawn_limit: int = 10
+@export var enemy_spawn_limit: int = 50
 ## How many enemies spawn at once
-@export var spawn_group_size: int = 1
+@export var spawn_group_size: int = 3
 ## The amount of enemies that spawn at the start of the game
 @export var amount_at_start: int = 5
 ## How long after the spawner activates before its spawn logic starts up again
-@export var activation_cooldown: float = 5.0
+@export var activation_cooldown: float = 2.0
 ## The amount of pixels the enemys can randomlly spawn in either direction
 @export var enemy_spawn_range: float = 100
 @export_group("Interval Spawning")
@@ -27,7 +27,7 @@ enum EnemyType {BasicEnemy, RangedEnemy}
 ## Time between spawn attempts
 @export var roll_time_gap: float = 1.0
 ## Chance for an enemy to spawn every time the dice is rolled
-@export_range(0, 100, 0.1, "suffix:%") var spawn_chance: float = 5.0
+@export_range(0, 100, 0.1, "suffix:%") var spawn_chance: float = 10.0
 
 var enemy_scenes = {
 	EnemyType.BasicEnemy: preload("res://Scenes/basic_enemy.tscn"),

@@ -21,27 +21,34 @@ navigation_polygon = SubResource("NavigationPolygon_6ev3c")
 [node name="Level" parent="level/NavigationRegion2D" instance=ExtResource("1_x6ack")]
 show_behind_parent = true
 
-[node name="enemy_spawners" type="Node" parent="level"]
+[node name="car_spawners" type="Node" parent="."]
 
-[node name="enemy_spawner" parent="level/enemy_spawners" instance=ExtResource("4_iacmt")]
-selected_enemy = 1
-
-[node name="car_spawners" type="Node" parent="level"]
-
-[node name="car_spawner" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+[node name="car_spawner" parent="car_spawners" instance=ExtResource("4_x6ack")]
 position = Vector2(-1316, 33)
 direction = "EAST"
 
-[node name="car_spawner2" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+[node name="car_spawner2" parent="car_spawners" instance=ExtResource("4_x6ack")]
 position = Vector2(1377, -29)
 direction = "WEST"
 
-[node name="car_spawner3" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+[node name="car_spawner3" parent="car_spawners" instance=ExtResource("4_x6ack")]
 position = Vector2(-35, -838)
 direction = "SOUTH"
 
-[node name="car_spawner4" parent="level/car_spawners" instance=ExtResource("4_x6ack")]
+[node name="car_spawner4" parent="car_spawners" instance=ExtResource("4_x6ack")]
 position = Vector2(33, 996)
+
+[node name="enemy_spawners" type="Node" parent="."]
+
+[node name="enemy_spawner2" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
+position = Vector2(-856, 723)
+random_spawn = true
+spawn_group_size = 4
+
+[node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
+selected_enemy = 1
+enemy_spawn_limit = 10
+amount_at_start = 1
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(1313, 965)
