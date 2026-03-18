@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc1txiasyibnc"]
+[gd_scene load_steps=11 format=3 uid="uid://dc1txiasyibnc"]
 
 [ext_resource type="Script" uid="uid://d2yu0wxtuhxtc" path="res://Scripts/player_movement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://l8837qm8opfr" path="res://Scenes/main_ui.tscn" id="2_6t5aa"]
+[ext_resource type="Script" uid="uid://bxr5tvhnxgx35" path="res://Scripts/heavy_weapon.gd" id="4_x3wgy"]
+[ext_resource type="Script" uid="uid://dm8etakdsun1" path="res://Scripts/light_weapon.gd" id="5_3smsa"]
+[ext_resource type="Script" uid="uid://b1mlhk8wqdo25" path="res://Scripts/special_weapon.gd" id="6_8erm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(34, 34)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6t5aa"]
 polygon = PackedVector2Array(17, -17, 17, 17, -17, 17, -17, -17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
+size = Vector2(53, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3smsa"]
+size = Vector2(87, 20)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 light_mask = 3
@@ -28,3 +37,22 @@ shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_6t5aa")
+
+[node name="weapons" type="Node2D" parent="."]
+
+[node name="heavy_weapon" type="Area2D" parent="weapons" groups=["weapon_heavy"]]
+script = ExtResource("4_x3wgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapons/heavy_weapon"]
+position = Vector2(43.5, 0)
+shape = SubResource("RectangleShape2D_x3wgy")
+
+[node name="light_weapon" type="Area2D" parent="weapons" groups=["weapon_light"]]
+script = ExtResource("5_3smsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapons/light_weapon"]
+position = Vector2(60.5, 0)
+shape = SubResource("RectangleShape2D_3smsa")
+
+[node name="special_weapon" type="Area2D" parent="weapons" groups=["weapon_special"]]
+script = ExtResource("6_8erm5")

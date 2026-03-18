@@ -17,9 +17,11 @@ agent_radius = 45.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="level"]
 navigation_polygon = SubResource("NavigationPolygon_6ev3c")
+metadata/_edit_lock_ = true
 
 [node name="Level" parent="level/NavigationRegion2D" instance=ExtResource("1_x6ack")]
 show_behind_parent = true
+metadata/_edit_lock_ = true
 
 [node name="car_spawners" type="Node" parent="."]
 
@@ -48,7 +50,6 @@ spawn_group_size = 4
 [node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
 selected_enemy = 1
 enemy_spawn_limit = 10
-amount_at_start = 1
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(1313, 965)

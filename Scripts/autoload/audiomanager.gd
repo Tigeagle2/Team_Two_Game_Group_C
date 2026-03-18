@@ -9,13 +9,19 @@ extends Node
 var sfx_pool: Array[AudioStreamPlayer] = []
 var next_player_index: int = 0
 var sound_history: Dictionary = {} 
-
+var can_play_projectile_sound: bool = true
 func _ready() -> void:
 	for i in range(pool_size):
 		var p = AudioStreamPlayer.new()
 		p.bus = "Sound Effects" 
 		add_child(p)
 		sfx_pool.append(p)
+func attempt_to_play_projectile_sound():
+	if can_play_projectile_sound:
+		can_play_projectile_sound = false
+		play_sound_effect(load("res://Assets/Sound_Effects/Projectile.mp3"),1.0, -5.0)
+		await get_tree().create_timer(0.1).timeout
+		can_play_projectile_sound = true
 func play_music(stream: AudioStream):
 	if music_player.stream == stream and music_player.playing:
 		return 

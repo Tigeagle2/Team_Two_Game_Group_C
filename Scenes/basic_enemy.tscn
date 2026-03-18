@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bab8trh1whf5t"]
+[gd_scene load_steps=7 format=3 uid="uid://bab8trh1whf5t"]
 
 [ext_resource type="Script" uid="uid://d3y52fmbsx7bj" path="res://Scripts/basic_enemy.gd" id="1_fecjr"]
 [ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="2_lal1l"]
@@ -11,6 +11,9 @@ radius = 15.033297
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fecjr"]
 size = Vector2(36, 36)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fecjr"]
+polygon = PackedVector2Array(18, 18, 18, -18, -18, -18, -18, 18)
 
 [node name="basic_enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -45,6 +48,9 @@ shape = SubResource("RectangleShape2D_fecjr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-18, -18, 36, 36)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_fecjr")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

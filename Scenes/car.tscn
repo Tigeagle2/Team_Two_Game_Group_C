@@ -25,8 +25,8 @@ rotation = 3.1415927
 scale = Vector2(0.4921875, 0.18750001)
 
 [node name="headlight_top" type="PointLight2D" parent="headlights"]
-position = Vector2(62.98413, -53.333374)
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(62.98414, -90.413895)
+scale = Vector2(1, 1.4658766)
 color = Color(1, 1, 0.5529412, 1)
 blend_mode = 2
 shadow_enabled = true
@@ -35,8 +35,8 @@ texture = ExtResource("3_1sfmx")
 offset = Vector2(317.365, 0)
 
 [node name="headlight_bottom" type="PointLight2D" parent="headlights"]
-position = Vector2(62.98416, 42.666595)
-scale = Vector2(0.9999999, 0.9999999)
+position = Vector2(62.984146, 80.9191)
+scale = Vector2(0.9999999, 1.4528722)
 color = Color(1, 1, 0.5529412, 1)
 blend_mode = 2
 shadow_enabled = true

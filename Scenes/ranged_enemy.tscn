@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://df8njpui26xa0"]
+[gd_scene load_steps=7 format=3 uid="uid://df8njpui26xa0"]
 
 [ext_resource type="Script" uid="uid://dufwjot2kp1r6" path="res://Scripts/ranged_enemy.gd" id="1_msnv5"]
 [ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="2_5x7gc"]
@@ -11,6 +11,9 @@ radius = 15.033297
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x7gc"]
 size = Vector2(36, 36)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5x7gc"]
+polygon = PackedVector2Array(18, 18, 18, -18, -18, -18, -18, 18)
 
 [node name="ranged_enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -41,6 +44,9 @@ collision_mask = 10
 shape = SubResource("RectangleShape2D_5x7gc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_5x7gc")
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

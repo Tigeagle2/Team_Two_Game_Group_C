@@ -1,12 +1,26 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-
+@onready var heavy_weapon = $weapons/heavy_weapon
+@onready var light_weapon = $weapons/light_weapon
+@onready var special_weapon = $weapons/special_weapon
+var can_attack: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+func _input(event: InputEvent) -> void:
+	if can_attack:
+		if event.is_action_pressed("heavy_attack"):
+			can_attack = false
+			heavy_weapon.attack()
+			await heavy_weapon.attack_finished
+			can_attack = true
+		if event.is_action_pressed("light_attack"):
+			can_attack = false
+			light_weapon.attack()
+			await light_weapon.attack_finished
+			can_attack = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8behcdvcdod"]
+
+[ext_resource type="Texture2D" uid="uid://jym5ffiocw28" path="res://Assets/Square.png" id="1_7x4fv"]
+
+[node name="window_lights" type="PointLight2D"]
+scale = Vector2(0.17961058, 0.91490185)
+color = Color(1, 1, 0.5529412, 1)
+energy = 0.57
+texture = ExtResource("1_7x4fv")
