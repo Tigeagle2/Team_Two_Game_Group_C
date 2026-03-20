@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsscxhde0v5xa"]
+[gd_scene load_steps=5 format=3 uid="uid://dsscxhde0v5xa"]
 
 [ext_resource type="Texture2D" uid="uid://dq24f4vvwt26g" path="res://Assets/icon.svg" id="1_2t6rl"]
 [ext_resource type="Script" uid="uid://b5da0em6yq3v4" path="res://Scripts/ranged_projectile_enemy.gd" id="1_jueys"]
 [ext_resource type="PackedScene" uid="uid://cd3cj8nuheov4" path="res://Scenes/street_light.tscn" id="3_ji5h2"]
 
-[node name="ranged_projectile_enemy" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji5h2"]
+size = Vector2(14, 14)
+
+[node name="ranged_projectile_enemy" type="Area2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_jueys")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -14,3 +19,9 @@ texture = ExtResource("1_2t6rl")
 [node name="street_light" parent="." instance=ExtResource("3_ji5h2")]
 scale = Vector2(1.0909091, 1.0592582)
 energy = 0.35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ji5h2")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

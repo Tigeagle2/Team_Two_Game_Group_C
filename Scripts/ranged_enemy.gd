@@ -18,6 +18,8 @@ var player: Node2D = null
 var setup_active: bool = true
 var projectile_attack_active: bool = false
 var projectile_scene = preload("res://Scenes/ranged_projectile_enemy.tscn")
+var damage: int = 5
+
 var attack_countdown
 var screen_countdown
 func _ready():

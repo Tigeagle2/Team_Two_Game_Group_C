@@ -24,3 +24,12 @@ func _input(event: InputEvent) -> void:
 			light_weapon.attack()
 			await light_weapon.attack_finished
 			can_attack = true
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		if "setup_active" in body:
+			if !body.setup_active:
+				gamemanager.attempt_to_take_damage(body.damage)
+func _on_hitbox_area_entered(area: Node2D) -> void:
+	if area.is_in_group("enemy"):
+		if "damage" in area:
+			gamemanager.attempt_to_take_damage(area.damage)

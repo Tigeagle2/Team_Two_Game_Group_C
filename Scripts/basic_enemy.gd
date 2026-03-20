@@ -11,6 +11,7 @@ var active: bool = false
 var on_screen: bool = false
 var player: Node2D = null
 var setup_active: bool = true
+var damage: int = 10
 
 var screen_countdown
 func _ready():

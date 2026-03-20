@@ -43,9 +43,12 @@ position = Vector2(33, 996)
 [node name="enemy_spawners" type="Node" parent="."]
 
 [node name="enemy_spawner2" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
-position = Vector2(-856, 723)
+position = Vector2(-482, 864)
 random_spawn = true
+spawn_while_on_screen = true
 spawn_group_size = 4
+amount_at_start = 0
+enemy_spawn_range = 0.0
 
 [node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
 selected_enemy = 1

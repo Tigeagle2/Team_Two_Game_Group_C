@@ -4,7 +4,6 @@ var menu_tween: Tween
 func _ready() -> void:
 	$pause_menu.visible = false
 	$pause_menu.pivot_offset = $pause_menu.size / 2
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu"):
@@ -21,7 +20,6 @@ func _toggle_pause():
 	else:
 		_close_pause_menu()
 func _open_pause_menu():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$pause_menu.show()
 	$pause_menu.pivot_offset = $pause_menu.size / 2
 	$pause_menu/resume_button.grab_focus()
@@ -30,7 +28,6 @@ func _open_pause_menu():
 	menu_tween.tween_property($pause_menu, "modulate:a", 1.0, 0.2)
 
 func _close_pause_menu():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	menu_tween.tween_property($pause_menu, "scale", Vector2.ZERO, 0.2)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	menu_tween.tween_property($pause_menu, "modulate:a", 0.0, 0.2)
