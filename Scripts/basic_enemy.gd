@@ -12,12 +12,12 @@ var on_screen: bool = false
 var player: Node2D = null
 var setup_active: bool = true
 var damage: int = 10
-
+var health: int = 100
 var screen_countdown
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	speed += randf_range(-speed_difference, speed_difference)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1, false).timeout
 	setup_active = false
 	screen_countdown = off_screen_time
 func _process(delta: float) -> void:
@@ -69,3 +69,18 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	on_screen = false
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if !setup_active:
+		if area.is_in_group("weapon_heavy"):
+			take_knockback(player.heavy_weapon.knockback_strength)
+			take_damage(player.heavy_weapon.damage)
+		if area.is_in_group("weapon_light"):
+			take_knockback(player.light_weapon.knockback_strength)
+			take_damage(player.light_weapon.damage)
+func take_damage(self_damage: int):
+	health -= self_damage
+	if health <= 0:
+		queue_free()
+func take_knockback(amount: int):
+	var push_direction = (self.global_position - player.global_position).normalized()
+	knockback_velocity = push_direction * amount

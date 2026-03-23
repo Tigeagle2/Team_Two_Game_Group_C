@@ -5,10 +5,10 @@
 [node name="audiomanager" type="Node"]
 script = ExtResource("1_ejid4")
 
-[node name="music_player" type="AudioStreamPlayer2D" parent="."]
+[node name="music_player" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 bus = &"Music"
 
-[node name="menu_sound_player" type="AudioStreamPlayer2D" parent="."]
+[node name="menu_sound_player" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 bus = &"Menu Sounds"

@@ -1,25 +1,37 @@
 extends Node
-@export var pool_size: int = 12          
-@export var same_sound_limit: int = 3   
-@export var min_interval: float = 0.05  
-
+var sfx_pool_size: int = 12     
+var ambient_pool_size: int = 5     
+var same_sfx_limit: int = 3   
+var min_interval: float = 0.05  
+var same_ambient_limit: int = 1
 @onready var music_player = $music_player
 @onready var menu_player = $menu_sound_player
-
-var sfx_pool: Array[AudioStreamPlayer] = []
-var next_player_index: int = 0
-var sound_history: Dictionary = {} 
+var projectile_sound = preload("res://Assets/Sound_Effects/Projectile.mp3")
+var sfx_pool: Array[AudioStreamPlayer2D] = []
+var ambient_pool: Array[AudioStreamPlayer] = []
+var next_sfx_index: int = 0
+var next_ambient_index: int = 0
+var sfx_sound_history: Dictionary = {} 
+var ambient_sound_history: Dictionary = {}
 var can_play_projectile_sound: bool = true
 func _ready() -> void:
-	for i in range(pool_size):
-		var p = AudioStreamPlayer.new()
+	for i in range(sfx_pool_size):
+		var p = AudioStreamPlayer2D.new()
 		p.bus = "Sound Effects" 
+		p.process_mode = Node.PROCESS_MODE_PAUSABLE
+		p.max_distance = 1000
 		add_child(p)
 		sfx_pool.append(p)
-func attempt_to_play_projectile_sound():
+	for i in range(ambient_pool_size):
+		var p = AudioStreamPlayer.new()
+		p.bus = "Ambient Sounds"
+		p.process_mode = Node.PROCESS_MODE_PAUSABLE
+		add_child(p)
+		ambient_pool.append(p)
+func attempt_to_play_projectile_sound(position: Vector2):
 	if can_play_projectile_sound:
 		can_play_projectile_sound = false
-		play_sound_effect(load("res://Assets/Sound_Effects/Projectile.mp3"),1.0, -5.0)
+		play_sound_effect(projectile_sound, position, 1.0, -5.0)
 		await get_tree().create_timer(0.1).timeout
 		can_play_projectile_sound = true
 func play_music(stream: AudioStream):
@@ -30,13 +42,13 @@ func play_music(stream: AudioStream):
 func play_menu_sound(stream: AudioStream):
 	menu_player.stream = stream
 	menu_player.play()
-func play_sound_effect(stream: AudioStream, pitch: float = 1.0, additonal_volume: float = 0):
+func play_sound_effect(stream: AudioStream, pos: Vector2 = Vector2.ZERO, pitch: float = 1.0, additonal_volume: float = 0):
 	if not stream: return
 
 	var now = Time.get_ticks_msec() / 1000.0
 	var stream_path = stream.resource_path
-	if sound_history.has(stream_path):
-		if now - sound_history[stream_path] < min_interval:
+	if sfx_sound_history.has(stream_path):
+		if now - sfx_sound_history[stream_path] < min_interval:
 			return
 	
 	var active_instances = 0
@@ -44,13 +56,37 @@ func play_sound_effect(stream: AudioStream, pitch: float = 1.0, additonal_volume
 		if p.playing and p.stream and p.stream.resource_path == stream_path:
 			active_instances += 1
 	
-	if active_instances >= same_sound_limit:
+	if active_instances >= same_sfx_limit:
 		return 
-	sound_history[stream_path] = now
-	
-	var player = sfx_pool[next_player_index]
+	sfx_sound_history[stream_path] = now
+	var player = sfx_pool[next_sfx_index]
 	player.stream = stream
 	player.pitch_scale = pitch
-	player.volume_db += additonal_volume
+	player.volume_db = 0.0 + additonal_volume
+	player.global_position = pos
 	player.play()
-	next_player_index = (next_player_index + 1) % pool_size
+	next_sfx_index = (next_sfx_index + 1) % sfx_pool_size
+func play_ambient_sound(stream: AudioStream, pitch: float = 1.0, additonal_volume: float = 0):
+	if not stream: return
+
+	var now = Time.get_ticks_msec() / 1000.0
+	var stream_path = stream.resource_path
+	if ambient_sound_history.has(stream_path):
+		if now - ambient_sound_history[stream_path] < min_interval:
+			return
+	
+	var active_instances = 0
+	for p in ambient_pool:
+		if p.playing and p.stream and p.stream.resource_path == stream_path:
+			active_instances += 1
+	
+	if active_instances >= same_ambient_limit:
+		return 
+	ambient_sound_history[stream_path] = now
+	
+	var player = ambient_pool[next_ambient_index]
+	player.stream = stream
+	player.pitch_scale = pitch
+	player.volume_db = 0.0 + additonal_volume
+	player.play()
+	next_ambient_index = (next_ambient_index + 1) % ambient_pool_size

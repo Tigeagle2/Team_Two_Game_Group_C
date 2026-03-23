@@ -4,10 +4,12 @@ var direction: String
 const speed: int = 250
 var passing_sound_played: bool = false
 var vertical_texture = preload("res://Assets/sprites/CarN.png")
+var distant_car = preload("res://Assets/Sound_Effects/Car_Distant_Pass.mp3")
+var car_close = preload("res://Assets/Sound_Effects/Car_Close.mp3")
 var knockback_force: int = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().create_timer(12.0).timeout
+	await get_tree().create_timer(12.0, false).timeout
 	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,12 +45,16 @@ func _car_setup(direction_in: String):
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	if not passing_sound_played:
 		passing_sound_played = true
-		audiomanager.play_sound_effect(load("res://Assets/Sound_Effects/Car_Distant_Pass.mp3"), 1.5)
-
+		if direction == "EAST" || direction == "WEST":
+			var screen_center_x = get_viewport_transform().affine_inverse().origin.x + (get_viewport_rect().size.x / 2)
+			audiomanager.play_sound_effect(distant_car, Vector2(screen_center_x, global_position.y), 1.5)
+		elif direction == "NORTH" || direction == "SOUTH":
+			var screen_center_y = get_viewport_transform().affine_inverse().origin.y + (get_viewport_rect().size.y / 2)
+			audiomanager.play_sound_effect(distant_car, Vector2(global_position.x, screen_center_y), 1.5)
 
 func _on_honk_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		audiomanager.play_sound_effect(load("res://Assets/Sound_Effects/Car_Close.mp3"), 1.0 , -10.0)
+		audiomanager.play_sound_effect(car_close, global_position, 1.0 , -10.0)
 
 
 func _on_body_entered(body: Node2D) -> void:

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://d10otn3fbkc4p"]
+
+[ext_resource type="Script" uid="uid://dqx7npy0cosal" path="res://Scripts/story_screen.gd" id="1_ajpfi"]
+
+[sub_resource type="Gradient" id="Gradient_vbt85"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ajpfi"]
+gradient = SubResource("Gradient_vbt85")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbt85"]
+font_size = 25
+
+[node name="story_screen" type="Node2D"]
+script = ExtResource("1_ajpfi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+texture = SubResource("GradientTexture1D_ajpfi")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 273.0
+offset_top = 37.0
+offset_right = 788.0
+offset_bottom = 427.0
+text = "Story Goes here"
+scroll_active = false
+
+[node name="countdown_label" type="Label" parent="."]
+offset_left = 682.0
+offset_top = 608.0
+offset_right = 1143.0
+offset_bottom = 643.0
+text = "Click Space or Left Button To Continue"
+label_settings = SubResource("LabelSettings_vbt85")
+horizontal_alignment = 2

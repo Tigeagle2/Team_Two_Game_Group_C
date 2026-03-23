@@ -19,7 +19,7 @@ var setup_active: bool = true
 var projectile_attack_active: bool = false
 var projectile_scene = preload("res://Scenes/ranged_projectile_enemy.tscn")
 var damage: int = 5
-
+var health: int = 100
 var attack_countdown
 var screen_countdown
 func _ready():
@@ -28,7 +28,7 @@ func _ready():
 	screen_countdown = off_screen_time
 	var random_roll = randf_range(0, attack_cooldown_random_range)
 	attack_countdown = attack_frequency_min + random_roll
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1, false).timeout
 	setup_active = false
 	
 func _process(delta: float) -> void:
@@ -86,7 +86,7 @@ func ranged_attack():
 		projectile.global_position.x = self.global_position.x
 		projectile.global_position.y = self.global_position.y - (projectile_y_offset)
 		get_tree().current_scene.add_child(projectile)
-		await get_tree().create_timer(attack_buildup_time).timeout
+		await get_tree().create_timer(attack_buildup_time, false).timeout
 	projectile_attack_active = false
 	var random_roll = randf_range(0, attack_cooldown_random_range)
 	attack_countdown = attack_frequency_min + random_roll
@@ -98,3 +98,20 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	on_screen = false
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if !setup_active:
+		if area.is_in_group("weapon_heavy"):
+			take_knockback(player.heavy_weapon.knockback_strength)
+			take_damage(player.heavy_weapon.damage)
+		if area.is_in_group("weapon_light"):
+			take_knockback(player.light_weapon.knockback_strength)
+			take_damage(player.light_weapon.damage)
+func take_damage(self_damage: int):
+	health -= self_damage
+	if health <= 0:
+		queue_free()
+func take_knockback(amount: int):
+	var push_direction = (self.global_position - player.global_position).normalized()
+	knockback_velocity = push_direction * amount

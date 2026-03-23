@@ -12,13 +12,13 @@ func _ready() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		fade_in(projectile_build_up_time - (projectile_build_up_time / 8))
-		await get_tree().create_timer(projectile_build_up_time).timeout
+		await get_tree().create_timer(projectile_build_up_time, false).timeout
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
 		can_move = true
 		$CollisionShape2D.set_deferred("disabled", false)
-		audiomanager.attempt_to_play_projectile_sound()
-	await get_tree().create_timer(1.5).timeout
+		audiomanager.attempt_to_play_projectile_sound(global_position)
+	await get_tree().create_timer(1.5, false).timeout
 	queue_free()
 	
 	
@@ -32,6 +32,7 @@ func setup(build_up_time: float):
 func fade_in(duration: float):
 	modulate.a = 0
 	var tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_STOP)
 	tween.tween_property(self, "modulate:a", 1.0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	await tween.finished
 
