@@ -5,7 +5,7 @@ var velocity: Vector2 = Vector2.ZERO
 var can_move: bool = false
 var direction
 var collision_groups = ["weapon_heavy", "weapon_light", "weapon_special"]
-var damage: int = 10
+var damage: int = 15
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)

@@ -5,6 +5,7 @@ var invincible: bool = true
 const invincibility_time: float = 1.0
 var invincibility_timer
 const ambient_sound_frequency: float = 5
+const health_regen_amount: float = 0.5
 # Called when the node enters the scene tree for the first time.
 var ambient_sound_timer
 var wind_sound = preload('res://Assets/Sound_Effects/Ambient_Wind.mp3')
@@ -30,6 +31,11 @@ func _process(delta: float) -> void:
 		ambient_sound_timer = ambient_sound_frequency
 	else:
 		ambient_sound_timer -= delta
+	if health < max_health:
+		health += delta * health_regen_amount
+		print(health)
+	elif health > max_health:
+		health = max_health
 func attempt_to_take_damage(damage: float):
 	if !invincible:
 		invincible = true

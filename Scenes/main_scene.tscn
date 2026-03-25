@@ -53,6 +53,7 @@ enemy_spawn_range = 0.0
 [node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
 selected_enemy = 1
 enemy_spawn_limit = 10
+amount_at_start = 1
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(1313, 965)

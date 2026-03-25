@@ -19,7 +19,7 @@ var setup_active: bool = true
 var projectile_attack_active: bool = false
 var projectile_scene = preload("res://Scenes/ranged_projectile_enemy.tscn")
 var damage: int = 5
-var health: int = 100
+var health: int = 150
 var attack_countdown
 var screen_countdown
 func _ready():
@@ -28,9 +28,9 @@ func _ready():
 	screen_countdown = off_screen_time
 	var random_roll = randf_range(0, attack_cooldown_random_range)
 	attack_countdown = attack_frequency_min + random_roll
+	$AnimatedSprite2D.play("Idle")
 	await get_tree().create_timer(0.1, false).timeout
 	setup_active = false
-	
 func _process(delta: float) -> void:
 	if not on_screen and active:
 		if screen_countdown <= 0:
@@ -81,6 +81,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func ranged_attack():
 	projectile_attack_active = true
 	for i in attack_rounds:
+		$AnimatedSprite2D.play("attack", 3.0)
 		var projectile = projectile_scene.instantiate()
 		projectile.setup(attack_buildup_time)
 		projectile.global_position.x = self.global_position.x
@@ -88,6 +89,7 @@ func ranged_attack():
 		get_tree().current_scene.add_child(projectile)
 		await get_tree().create_timer(attack_buildup_time, false).timeout
 	projectile_attack_active = false
+	
 	var random_roll = randf_range(0, attack_cooldown_random_range)
 	attack_countdown = attack_frequency_min + random_roll
 	
@@ -95,6 +97,7 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	on_screen = true
 	active = true
 	screen_countdown = off_screen_time
+	$AnimatedSprite2D.play("Run")
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	on_screen = false
@@ -111,7 +114,17 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func take_damage(self_damage: int):
 	health -= self_damage
 	if health <= 0:
+		active = false
+		$CollisionShape2D.set_deferred("disabled", true)
+		$detection_area/CollisionShape2D.set_deferred("disabled", true)
+		$hitbox/CollisionShape2D.set_deferred("disabled", true)
+		$AnimatedSprite2D.play("Death", 2.0)
+		await $AnimatedSprite2D.animation_finished
 		queue_free()
+	else:
+		$AnimatedSprite2D.play("hurt")
+		await $AnimatedSprite2D.animation_finished
+		$AnimatedSprite2D.play("Run")
 func take_knockback(amount: int):
 	var push_direction = (self.global_position - player.global_position).normalized()
 	knockback_velocity = push_direction * amount

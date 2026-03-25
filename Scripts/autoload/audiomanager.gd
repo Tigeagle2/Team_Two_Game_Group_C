@@ -39,6 +39,8 @@ func play_music(stream: AudioStream):
 		return 
 	music_player.stream = stream
 	music_player.play()
+func stop_music():
+	music_player.stop()
 func play_menu_sound(stream: AudioStream):
 	menu_player.stream = stream
 	menu_player.play()
