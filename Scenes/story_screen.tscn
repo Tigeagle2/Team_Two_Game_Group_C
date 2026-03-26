@@ -25,7 +25,10 @@ offset_left = 9.0
 offset_right = 424.0
 offset_bottom = 427.0
 text = "You are a citizen of [insert name here with your imagination] with the goal of defeating the cult of the city. 
+
 Your goal is to score as many points in 3 minutes as you can. Can you do it without dying?
+
+You MUST score at least 2000 points to win
 
 Movement: WASD, Left Stick
 Aim: Mouse, Right Stick

@@ -17,11 +17,13 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("heavy_attack"):
 			can_attack = false
 			heavy_weapon.attack()
+			Input.start_joy_vibration(0, 0.1, 0.5, 0.2)
 			await heavy_weapon.attack_finished
 			can_attack = true
 		if event.is_action_pressed("light_attack"):
 			can_attack = false
 			light_weapon.attack()
+			Input.start_joy_vibration(0, 0.7, 0.2, 0.1)
 			await light_weapon.attack_finished
 			can_attack = true
 		if event.is_action_pressed("special_attack") || event.is_action_pressed("left_bumper") && Input.is_action_pressed("right_bumper") || event.is_action_pressed("right_bumper") && Input.is_action_pressed("left_bumper"):
@@ -29,6 +31,7 @@ func _input(event: InputEvent) -> void:
 				gamemanager.special_charge = 0
 				can_attack = false
 				special_weapon.attack()
+				Input.start_joy_vibration(0, 0.5, 1.0, 0.5)
 				await special_weapon.attack_finished
 				can_attack = true
 func _on_hitbox_body_entered(body: Node2D) -> void:

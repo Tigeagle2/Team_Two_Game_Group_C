@@ -11,6 +11,7 @@ var active: bool = false
 var on_screen: bool = false
 var player: Node2D = null
 var setup_active: bool = true
+var dead: bool = false
 var damage: int = 10
 var health: int = 100
 var screen_countdown
@@ -18,6 +19,7 @@ var death_sound = preload("res://Assets/Sound_Effects/Enemy_Grunt_1.mp3")
 var flashbang_active: bool = false
 var flashbang_cooldown: float = 5.0
 var flashbang_countdown
+var dead_backup_counter: float = 5
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	player.get_node("weapons").get_node("special_weapon").special_weapon_activated.connect(_on_special_weapon_activated)
@@ -39,6 +41,10 @@ func _process(delta: float) -> void:
 			$CollisionShape2D.set_deferred("disabled", true)
 			if on_screen:
 				active = true
+	if dead:
+		dead_backup_counter -= delta
+		if dead_backup_counter <= 0:
+			queue_free()
 func _physics_process(delta):
 	if active:
 		# recalculate position every 10 frames
@@ -96,7 +102,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			take_damage(player.light_weapon.damage)
 func take_damage(self_damage: int):
 	health -= self_damage
-	if health <= 0:
+	if health <= 0 && not dead:
+		dead = true
 		gamemanager.special_charge += 0.5
 		gamemanager.score += 10
 		audiomanager.play_sound_effect(death_sound, global_position)

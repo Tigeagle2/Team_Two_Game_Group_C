@@ -16,6 +16,7 @@ var active: bool = false
 var on_screen: bool = false
 var player: Node2D = null
 var setup_active: bool = true
+var dead: bool = false
 var projectile_attack_active: bool = false
 var projectile_scene = preload("res://Scenes/ranged_projectile_enemy.tscn")
 var death_sound = preload("res://Assets/Sound_Effects/Enemy_Grunt_2.mp3")
@@ -26,6 +27,7 @@ var attack_countdown
 var screen_countdown
 var flashbang_cooldown: float = 5.0
 var flashbang_countdown
+var dead_backup_counter: float = 5
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	player.get_node("weapons").get_node("special_weapon").special_weapon_activated.connect(_on_special_weapon_activated)
@@ -55,6 +57,10 @@ func _process(delta: float) -> void:
 			$CollisionShape2D.set_deferred("disabled", true)
 			if on_screen:
 				active = true
+	if dead:
+		dead_backup_counter -= delta
+		if dead_backup_counter <= 0:
+			queue_free()
 func _physics_process(delta):
 	if active:
 		# recalculate position every 10 frames
@@ -81,6 +87,8 @@ func _physics_process(delta):
 		velocity = final_movement + knockback_velocity
 		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.1)
 		move_and_slide()
+		if dead: 
+			return
 		if abs(velocity.x) > 1.0:
 			$AnimatedSprite2D.flip_h = velocity.x < 0
 	else:
@@ -100,7 +108,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func ranged_attack():
 	projectile_attack_active = true
 	for i in attack_rounds:
-		if flashbang_active || health <= 0:
+		if flashbang_active || health <= 0 || dead:
 			break
 		$AnimatedSprite2D.play("attack", 3.0)
 		var projectile = projectile_scene.instantiate()
@@ -110,7 +118,8 @@ func ranged_attack():
 		get_tree().current_scene.add_child(projectile)
 		await get_tree().create_timer(attack_buildup_time, false).timeout
 	projectile_attack_active = false
-	$AnimatedSprite2D.play("Run")
+	if not dead:
+		$AnimatedSprite2D.play("Run")
 	
 	var random_roll = randf_range(0, attack_cooldown_random_range)
 	attack_countdown = attack_frequency_min + random_roll
@@ -134,8 +143,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			take_knockback(player.light_weapon.knockback_strength)
 			take_damage(player.light_weapon.damage)
 func take_damage(self_damage: int):
+	if dead:
+		return
 	health -= self_damage
 	if health <= 0:
+		dead = true
 		active = false
 		gamemanager.special_charge += 2
 		gamemanager.score += 20

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://l8837qm8opfr"]
+[gd_scene load_steps=11 format=3 uid="uid://l8837qm8opfr"]
 
 [ext_resource type="Script" uid="uid://hrll7mh7k0gd" path="res://Scripts/main_ui.gd" id="1_kqhp1"]
 [ext_resource type="Script" uid="uid://d0a2rwm5iofp1" path="res://Scripts/music_slider.gd" id="2_f28it"]
@@ -28,6 +28,9 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_f28it")
 
 [sub_resource type="LabelSettings" id="LabelSettings_dcbcb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbbry"]
+font_size = 20
 
 [node name="main_ui" type="CanvasLayer"]
 process_mode = 3
@@ -133,6 +136,15 @@ offset_bottom = 25.0
 text = "Score"
 label_settings = SubResource("LabelSettings_dcbcb")
 horizontal_alignment = 2
+
+[node name="time_label" type="Label" parent="."]
+offset_left = 457.0
+offset_top = 3.0
+offset_right = 497.0
+offset_bottom = 26.0
+text = "Time Remaining: 3:00"
+label_settings = SubResource("LabelSettings_tbbry")
+horizontal_alignment = 1
 
 [connection signal="drag_ended" from="pause_menu/music_slider" to="pause_menu/music_slider" method="_on_drag_ended"]
 [connection signal="value_changed" from="pause_menu/music_slider" to="pause_menu/music_slider" method="_on_value_changed"]

@@ -71,5 +71,6 @@ func _on_area_entered(area: Area2D) -> void:
 		car_hit_player = true
 		audiomanager.play_sound_effect(car_hit_sound, global_position, 1.0, 10.0)
 		gamemanager.attempt_to_take_damage(damage)
+		Input.start_joy_vibration(0, 0.7, 0.9, 0.3)
 		var tween = create_tween()
 		tween.tween_property(self, "speed", set_speed * 2, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)

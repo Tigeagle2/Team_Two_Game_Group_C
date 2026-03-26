@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 		$health_bar.value = gamemanager.health
 		$special_charge_bar.value = gamemanager.special_charge
 		$score_label.set_text("Score: " + str(gamemanager.score))
+		$time_label.set_text("Time Remaining: " + gamemanager.get_time_string())
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu"):
 		_toggle_pause()
