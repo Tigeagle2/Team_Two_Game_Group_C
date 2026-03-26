@@ -18,12 +18,17 @@ var player: Node2D = null
 var setup_active: bool = true
 var projectile_attack_active: bool = false
 var projectile_scene = preload("res://Scenes/ranged_projectile_enemy.tscn")
+var death_sound = preload("res://Assets/Sound_Effects/Enemy_Grunt_2.mp3")
 var damage: int = 5
 var health: int = 150
+var flashbang_active: bool = false
 var attack_countdown
 var screen_countdown
+var flashbang_cooldown: float = 5.0
+var flashbang_countdown
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	player.get_node("weapons").get_node("special_weapon").special_weapon_activated.connect(_on_special_weapon_activated)
 	speed += randf_range(-speed_difference, speed_difference)
 	screen_countdown = off_screen_time
 	var random_roll = randf_range(0, attack_cooldown_random_range)
@@ -42,6 +47,14 @@ func _process(delta: float) -> void:
 			ranged_attack()
 	else:
 		attack_countdown -= delta
+	if flashbang_active:
+		active = false
+		flashbang_countdown -= delta
+		if flashbang_countdown <= 0:
+			flashbang_active = false
+			$CollisionShape2D.set_deferred("disabled", true)
+			if on_screen:
+				active = true
 func _physics_process(delta):
 	if active:
 		# recalculate position every 10 frames
@@ -81,6 +94,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func ranged_attack():
 	projectile_attack_active = true
 	for i in attack_rounds:
+		if flashbang_active:
+			break
 		$AnimatedSprite2D.play("attack", 3.0)
 		var projectile = projectile_scene.instantiate()
 		projectile.setup(attack_buildup_time)
@@ -115,6 +130,9 @@ func take_damage(self_damage: int):
 	health -= self_damage
 	if health <= 0:
 		active = false
+		gamemanager.special_charge += 5
+		gamemanager.score += 20
+		audiomanager.play_sound_effect(death_sound, global_position)
 		$CollisionShape2D.set_deferred("disabled", true)
 		$detection_area/CollisionShape2D.set_deferred("disabled", true)
 		$hitbox/CollisionShape2D.set_deferred("disabled", true)
@@ -128,3 +146,9 @@ func take_damage(self_damage: int):
 func take_knockback(amount: int):
 	var push_direction = (self.global_position - player.global_position).normalized()
 	knockback_velocity = push_direction * amount
+func _on_special_weapon_activated():
+	if on_screen:
+		flashbang_active = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		flashbang_countdown = flashbang_cooldown
+		take_damage(5)

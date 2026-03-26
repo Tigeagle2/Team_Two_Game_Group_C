@@ -49,10 +49,13 @@ func play_sound_effect(stream: AudioStream, pos: Vector2 = Vector2.ZERO, pitch: 
 
 	var now = Time.get_ticks_msec() / 1000.0
 	var stream_path = stream.resource_path
+	
+	# 1. Check interval
 	if sfx_sound_history.has(stream_path):
 		if now - sfx_sound_history[stream_path] < min_interval:
 			return
 	
+	# 2. Check instance limit
 	var active_instances = 0
 	for p in sfx_pool:
 		if p.playing and p.stream and p.stream.resource_path == stream_path:
@@ -60,14 +63,22 @@ func play_sound_effect(stream: AudioStream, pos: Vector2 = Vector2.ZERO, pitch: 
 	
 	if active_instances >= same_sfx_limit:
 		return 
+	var player = null
+	for p in sfx_pool:
+		if not p.playing:
+			player = p
+			break
+			
+	# If all are busy, fallback to the oldest one
+	if player == null:
+		player = sfx_pool[next_sfx_index]
+		next_sfx_index = (next_sfx_index + 1) % sfx_pool_size
 	sfx_sound_history[stream_path] = now
-	var player = sfx_pool[next_sfx_index]
 	player.stream = stream
 	player.pitch_scale = pitch
-	player.volume_db = 0.0 + additonal_volume
+	player.volume_db = additonal_volume
 	player.global_position = pos
 	player.play()
-	next_sfx_index = (next_sfx_index + 1) % sfx_pool_size
 func play_ambient_sound(stream: AudioStream, pitch: float = 1.0, additonal_volume: float = 0):
 	if not stream: return
 

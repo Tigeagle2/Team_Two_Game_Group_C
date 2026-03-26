@@ -39,6 +39,8 @@ func fade_in(duration: float):
 
 func _on_area_entered(area: Area2D) -> void:
 	if collision_groups.any(func(group): return area.is_in_group(group)):
+		gamemanager.special_charge += 1
+		gamemanager.score += 1
 		queue_free()
 
 

@@ -14,8 +14,13 @@ var setup_active: bool = true
 var damage: int = 10
 var health: int = 100
 var screen_countdown
+var death_sound = preload("res://Assets/Sound_Effects/Enemy_Grunt_1.mp3")
+var flashbang_active: bool = false
+var flashbang_cooldown: float = 5.0
+var flashbang_countdown
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	player.get_node("weapons").get_node("special_weapon").special_weapon_activated.connect(_on_special_weapon_activated)
 	speed += randf_range(-speed_difference, speed_difference)
 	await get_tree().create_timer(0.1, false).timeout
 	setup_active = false
@@ -26,6 +31,14 @@ func _process(delta: float) -> void:
 			active = false
 		else:
 			screen_countdown -= delta
+	if flashbang_active:
+		active = false
+		flashbang_countdown -= delta
+		if flashbang_countdown <= 0:
+			flashbang_active = false
+			$CollisionShape2D.set_deferred("disabled", true)
+			if on_screen:
+				active = true
 func _physics_process(delta):
 	if active:
 		# recalculate position every 10 frames
@@ -80,7 +93,16 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func take_damage(self_damage: int):
 	health -= self_damage
 	if health <= 0:
+		gamemanager.special_charge += 2.5
+		gamemanager.score += 10
+		audiomanager.play_sound_effect(death_sound, global_position)
 		queue_free()
 func take_knockback(amount: int):
 	var push_direction = (self.global_position - player.global_position).normalized()
 	knockback_velocity = push_direction * amount
+func _on_special_weapon_activated():
+	if on_screen:
+		flashbang_active = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		flashbang_countdown = flashbang_cooldown
+		take_damage(5)

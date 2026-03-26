@@ -28,6 +28,7 @@ weapon_heavy=""
 weapon_light=""
 weapon_special=""
 terrain=""
+car=""
 
 [input]
 

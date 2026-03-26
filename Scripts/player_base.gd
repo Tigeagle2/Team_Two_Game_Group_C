@@ -24,6 +24,13 @@ func _input(event: InputEvent) -> void:
 			light_weapon.attack()
 			await light_weapon.attack_finished
 			can_attack = true
+		if event.is_action_pressed("special_attack"):
+			if gamemanager.special_charge >= 100:
+				gamemanager.special_charge = 0
+				can_attack = false
+				special_weapon.attack()
+				await special_weapon.attack_finished
+				can_attack = true
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		if "setup_active" in body:

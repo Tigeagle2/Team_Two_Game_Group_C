@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://161xxu7uhjsu"]
+[gd_scene load_steps=6 format=3 uid="uid://161xxu7uhjsu"]
 
 [ext_resource type="PackedScene" uid="uid://dc1txiasyibnc" path="res://Scenes/player.tscn" id="1_52fb6"]
-[ext_resource type="Script" uid="uid://cgbs81y6n08a" path="res://Scripts/main_scene.gd" id="1_iacmt"]
 [ext_resource type="PackedScene" uid="uid://bh3ey4etesspg" path="res://Scenes/level.tscn" id="1_x6ack"]
 [ext_resource type="PackedScene" uid="uid://cilxrskorn2c2" path="res://Scenes/enemy_spawner.tscn" id="4_iacmt"]
 [ext_resource type="PackedScene" uid="uid://cbyjsy2518063" path="res://Scenes/car_spawner.tscn" id="4_x6ack"]
@@ -13,7 +12,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1344, -896, -1344, 105
 agent_radius = 45.0
 
 [node name="main_scene" type="Node2D"]
-script = ExtResource("1_iacmt")
 
 [node name="level" type="Node2D" parent="."]
 
