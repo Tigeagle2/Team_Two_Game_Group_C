@@ -69,6 +69,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") and not car_hit_player:
 		car_hit_player = true
+		audiomanager.play_sound_effect(car_hit_sound, global_position, 1.0, 10.0)
 		gamemanager.attempt_to_take_damage(damage)
 		var tween = create_tween()
-		tween.tween_property(self, "speed", set_speed * 2, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+		tween.tween_property(self, "speed", set_speed * 2, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)

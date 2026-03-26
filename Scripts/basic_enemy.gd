@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 150.0
+var speed = 125.0
 @onready var nav_agent := $NavigationAgent2D
 var knockback_velocity = Vector2.ZERO
 var separation_amount: float = 1000.0
@@ -63,6 +63,10 @@ func _physics_process(delta):
 		velocity += knockback_velocity
 		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.1)
 		move_and_slide()
+	else:
+		velocity = knockback_velocity
+		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.1)
+		move_and_slide()
 func setup(spawn_range_x:int = 20, spawn_range_y: int = 20):
 	position.x = randf_range(-spawn_range_x, spawn_range_x)
 	position.y = randf_range(-spawn_range_y, spawn_range_y)
@@ -93,7 +97,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func take_damage(self_damage: int):
 	health -= self_damage
 	if health <= 0:
-		gamemanager.special_charge += 2.5
+		gamemanager.special_charge += 0.5
 		gamemanager.score += 10
 		audiomanager.play_sound_effect(death_sound, global_position)
 		queue_free()
@@ -103,6 +107,7 @@ func take_knockback(amount: int):
 func _on_special_weapon_activated():
 	if on_screen:
 		flashbang_active = true
+		velocity = Vector2(0, 0)
 		$CollisionShape2D.set_deferred("disabled", true)
 		flashbang_countdown = flashbang_cooldown
 		take_damage(5)

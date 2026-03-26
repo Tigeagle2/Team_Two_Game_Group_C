@@ -22,12 +22,12 @@ enum EnemyType {BasicEnemy, RangedEnemy}
 @export var enemy_spawn_range: float = 100
 @export_group("Interval Spawning")
 ## Time between spawn attemps
-@export var spawn_interval: float = 5.0
+@export var spawn_interval: float = 10.0
 @export_group("Random Spawning")
 ## Time between spawn attempts
 @export var roll_time_gap: float = 1.0
 ## Chance for an enemy to spawn every time the dice is rolled
-@export_range(0, 100, 0.1, "suffix:%") var spawn_chance: float = 10.0
+@export_range(0, 100, 0.1, "suffix:%") var spawn_chance: float = 5.0
 
 var enemy_scenes = {
 	EnemyType.BasicEnemy: preload("res://Scenes/basic_enemy.tscn"),
@@ -45,7 +45,11 @@ func _ready() -> void:
 		spawn_timer = roll_time_gap
 	else:
 		spawn_timer = spawn_interval
-	
+	var is_on_screen = $VisibleOnScreenNotifier2D.is_on_screen()
+	if spawn_while_on_screen:
+		spawner_active = is_on_screen
+	else:
+		spawner_active = !is_on_screen
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

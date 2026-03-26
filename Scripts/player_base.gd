@@ -24,7 +24,7 @@ func _input(event: InputEvent) -> void:
 			light_weapon.attack()
 			await light_weapon.attack_finished
 			can_attack = true
-		if event.is_action_pressed("special_attack"):
+		if event.is_action_pressed("special_attack") || event.is_action_pressed("left_bumper") && Input.is_action_pressed("right_bumper") || event.is_action_pressed("right_bumper") && Input.is_action_pressed("left_bumper"):
 			if gamemanager.special_charge >= 100:
 				gamemanager.special_charge = 0
 				can_attack = false

@@ -5,12 +5,12 @@ var invincible: bool = true
 const invincibility_time: float = 1.0
 var invincibility_timer
 const ambient_sound_frequency: float = 5
-const health_regen_amount: float = 0.5
+const health_regen_amount: float = 0.75
 # Called when the node enters the scene tree for the first time.
 var ambient_sound_timer
 var wind_sound = preload('res://Assets/Sound_Effects/Ambient_Wind.mp3')
 var car_far_sound = preload("res://Assets/Sound_Effects/Car_Far.mp3")
-var special_charge: float = 0.0
+var special_charge: float = 100.0
 var special_charge_rate: float = 1.0
 var game_finished: bool = false
 var game_started: bool = false

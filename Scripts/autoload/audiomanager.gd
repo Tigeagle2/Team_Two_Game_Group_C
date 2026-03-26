@@ -7,6 +7,7 @@ var same_ambient_limit: int = 1
 @onready var music_player = $music_player
 @onready var menu_player = $menu_sound_player
 var projectile_sound = preload("res://Assets/Sound_Effects/Projectile.mp3")
+var main_game_music = preload("res://Assets/Music/Combat Music Retro Game.mp3")
 var sfx_pool: Array[AudioStreamPlayer2D] = []
 var ambient_pool: Array[AudioStreamPlayer] = []
 var next_sfx_index: int = 0
@@ -28,16 +29,21 @@ func _ready() -> void:
 		p.process_mode = Node.PROCESS_MODE_PAUSABLE
 		add_child(p)
 		ambient_pool.append(p)
+	AudioServer.set_bus_volume_db(1, -5)
+func _process(delta: float) -> void:
+	if gamemanager.game_started and not music_player.playing:
+		play_music(main_game_music, -10)
 func attempt_to_play_projectile_sound(position: Vector2):
 	if can_play_projectile_sound:
 		can_play_projectile_sound = false
 		play_sound_effect(projectile_sound, position, 1.0, -5.0)
 		await get_tree().create_timer(0.1).timeout
 		can_play_projectile_sound = true
-func play_music(stream: AudioStream):
+func play_music(stream: AudioStream, additonal_volume: float = 0):
 	if music_player.stream == stream and music_player.playing:
 		return 
 	music_player.stream = stream
+	music_player.volume_db = additonal_volume
 	music_player.play()
 func stop_music():
 	music_player.stop()

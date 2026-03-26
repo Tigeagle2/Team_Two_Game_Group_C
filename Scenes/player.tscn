@@ -38,6 +38,10 @@ texture = ExtResource("1_v0iea")
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -1344
+limit_top = -896
+limit_right = 1408
+limit_bottom = 1056
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
 current = true

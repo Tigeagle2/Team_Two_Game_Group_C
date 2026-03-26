@@ -81,6 +81,12 @@ func _physics_process(delta):
 		velocity = final_movement + knockback_velocity
 		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.1)
 		move_and_slide()
+		if abs(velocity.x) > 1.0:
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+	else:
+		velocity = knockback_velocity
+		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.1)
+		move_and_slide()
 func setup(spawn_range_x:int = 20, spawn_range_y: int = 20):
 	position.x = randf_range(-spawn_range_x, spawn_range_x)
 	position.y = randf_range(-spawn_range_y, spawn_range_y)
@@ -94,7 +100,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func ranged_attack():
 	projectile_attack_active = true
 	for i in attack_rounds:
-		if flashbang_active:
+		if flashbang_active || health <= 0:
 			break
 		$AnimatedSprite2D.play("attack", 3.0)
 		var projectile = projectile_scene.instantiate()
@@ -104,6 +110,7 @@ func ranged_attack():
 		get_tree().current_scene.add_child(projectile)
 		await get_tree().create_timer(attack_buildup_time, false).timeout
 	projectile_attack_active = false
+	$AnimatedSprite2D.play("Run")
 	
 	var random_roll = randf_range(0, attack_cooldown_random_range)
 	attack_countdown = attack_frequency_min + random_roll
@@ -130,7 +137,7 @@ func take_damage(self_damage: int):
 	health -= self_damage
 	if health <= 0:
 		active = false
-		gamemanager.special_charge += 5
+		gamemanager.special_charge += 2
 		gamemanager.score += 20
 		audiomanager.play_sound_effect(death_sound, global_position)
 		$CollisionShape2D.set_deferred("disabled", true)

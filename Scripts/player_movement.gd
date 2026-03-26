@@ -2,6 +2,8 @@ extends PlayerBase
 
 var speed = 300
 var player_direction = 1
+var player_radius_x = 17
+var player_radius_y = 17
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$hitbox.body_entered.connect(_on_hitbox_body_entered)
@@ -17,6 +19,14 @@ func _physics_process(_delta):
 	var direction = Input.get_vector("west", "east", "north", "south")
 	velocity = direction * speed 
 	move_and_slide()
+	if global_position.x > 1408 - player_radius_x:
+		global_position.x = 1408 - player_radius_x
+	elif global_position.x < -1344 + player_radius_x:
+		global_position.x = -1344 + player_radius_x
+	elif global_position.y < -896 + player_radius_y:
+		global_position.y = -896 + player_radius_y
+	elif global_position.y > 1056 - player_radius_y:
+		global_position.y = 1056 - player_radius_y
 func _input(event: InputEvent) -> void:
 	super._input(event)
 	var look_direction = Vector2.ZERO
