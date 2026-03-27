@@ -13,7 +13,7 @@ var player: Node2D = null
 var setup_active: bool = true
 var dead: bool = false
 var damage: int = 10
-var health: int = 100
+var health: int = 75
 var screen_countdown
 var death_sound = preload("res://Assets/Sound_Effects/Enemy_Grunt_1.mp3")
 var flashbang_active: bool = false

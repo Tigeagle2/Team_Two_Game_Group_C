@@ -5,6 +5,9 @@ class_name PlayerBase
 @onready var light_weapon = $weapons/light_weapon
 @onready var special_weapon = $weapons/special_weapon
 var can_attack: bool = true
+var attack_animation_type: int = 0
+var attack_animation_lockout: bool = false
+signal attack_play(type: int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -16,15 +19,21 @@ func _input(event: InputEvent) -> void:
 	if can_attack:
 		if event.is_action_pressed("heavy_attack"):
 			can_attack = false
+			attack_play.emit(2)
 			heavy_weapon.attack()
 			Input.start_joy_vibration(0, 0.1, 0.5, 0.2)
 			await heavy_weapon.attack_finished
+			attack_animation_lockout = false 
+			attack_animation_type = 0
 			can_attack = true
 		if event.is_action_pressed("light_attack"):
 			can_attack = false
+			attack_play.emit(1)
 			light_weapon.attack()
 			Input.start_joy_vibration(0, 0.7, 0.2, 0.1)
 			await light_weapon.attack_finished
+			attack_animation_lockout = false 
+			attack_animation_type = 0
 			can_attack = true
 		if event.is_action_pressed("special_attack") || event.is_action_pressed("left_bumper") && Input.is_action_pressed("right_bumper") || event.is_action_pressed("right_bumper") && Input.is_action_pressed("left_bumper"):
 			if gamemanager.special_charge >= 100:

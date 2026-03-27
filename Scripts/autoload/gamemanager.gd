@@ -6,7 +6,8 @@ const invincibility_time: float = 1.0
 var invincibility_timer
 const ambient_sound_frequency: float = 5
 const health_regen_amount: float = 0.75
-var game_time: float = 180
+const set_game_time: float = 180
+var game_time
 # Called when the node enters the scene tree for the first time.
 var ambient_sound_timer
 var wind_sound = preload('res://Assets/Sound_Effects/Ambient_Wind.mp3')
@@ -20,6 +21,7 @@ func _ready() -> void:
 	health = max_health
 	invincibility_timer = invincibility_time
 	ambient_sound_timer = ambient_sound_frequency
+	game_time = set_game_time
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if invincible:
@@ -47,6 +49,10 @@ func _process(delta: float) -> void:
 		special_charge += delta * special_charge_rate
 	elif special_charge > 100:
 		special_charge = 100
+	if (game_time < 0 or health <= 0) and not game_finished :
+		game_finished = true
+		audiomanager.stop_music()
+		get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
 func attempt_to_take_damage(damage: float):
 	if !invincible:
 		invincible = true
@@ -60,3 +66,12 @@ func get_time_string() -> String:
 	var minutes := int(game_time / 60)
 	var seconds := int(game_time) % 60
 	return "%2d:%02d" % [minutes, seconds]
+func restart_game():
+	game_started = false
+	game_finished = false
+	health = max_health
+	audiomanager.stop_music()
+	special_charge = 0
+	score = 0
+	game_time = set_game_time
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
