@@ -4,6 +4,8 @@ extends Button
 var label: Label
 
 func _ready():
+	if Input.get_connected_joypads().size() > 0:
+		self.grab_focus()
 	for child in get_children():
 		if child is Label:
 			label = child

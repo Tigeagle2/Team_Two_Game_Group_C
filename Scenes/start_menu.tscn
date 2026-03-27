@@ -1,15 +1,15 @@
 [gd_scene load_steps=24 format=3 uid="uid://dwd0wovvggn5f"]
 
-[ext_resource type="Shader" uid="uid://72s45q1rqip1" path="res://Scenes/start_menu.gdshader" id="1_jgtwh"]
+[ext_resource type="Shader" path="res://Scenes/start_menu.gdshader" id="1_jgtwh"]
 [ext_resource type="Texture2D" uid="uid://bci5m0650chai" path="res://Assets/scrolling bg texture.png" id="2_m6uer"]
 [ext_resource type="AudioStream" uid="uid://1xqrlj5t2g0w" path="res://Assets/Music/menu music retro game.mp3" id="3_m6uer"]
 [ext_resource type="FontFile" uid="uid://bogwa3fuaegwo" path="res://Fonts/SUB URBAN City.ttf" id="4_a43kq"]
-[ext_resource type="Shader" uid="uid://cthynb376xch0" path="res://Scenes/start_menu_border.gdshader" id="5_8u0lp"]
-[ext_resource type="Script" uid="uid://chqw5kirbe0ga" path="res://Scenes/play_button.gd" id="5_i2i62"]
-[ext_resource type="Shader" uid="uid://cmdwvdxnuq6k" path="res://Scenes/Play_text.gdshader" id="6_lfskg"]
+[ext_resource type="Shader" path="res://Scenes/start_menu_border.gdshader" id="5_8u0lp"]
+[ext_resource type="Script" uid="uid://chqw5kirbe0ga" path="res://Scripts/play_button.gd" id="5_i2i62"]
+[ext_resource type="Shader" path="res://Scenes/Play_text.gdshader" id="6_lfskg"]
 [ext_resource type="AudioStream" uid="uid://cfghlpfts7127" path="res://Assets/Sound_Effects/Menu_Sound.mp3" id="8_lfskg"]
 [ext_resource type="Texture2D" uid="uid://c5ba5tnwpvfpj" path="res://Assets/buildings foreground.png" id="8_ru7em"]
-[ext_resource type="Script" uid="uid://ndld2jkks1dx" path="res://Scenes/exit_button.gd" id="10_77ila"]
+[ext_resource type="Script" uid="uid://ndld2jkks1dx" path="res://Scripts/exit_button.gd" id="10_77ila"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a43kq"]
 shader = ExtResource("1_jgtwh")
@@ -80,6 +80,7 @@ offset_left = 482.0
 offset_top = 190.0
 offset_right = 700.0
 offset_bottom = 296.0
+focus_neighbor_bottom = NodePath("../ExitButton")
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_hover_color = Color(0.5649615, 0.56496155, 0.5649626, 1)
 theme_override_fonts/font = ExtResource("4_a43kq")
@@ -178,6 +179,7 @@ offset_left = 516.0
 offset_top = 309.0
 offset_right = 678.0
 offset_bottom = 392.0
+focus_neighbor_top = NodePath("../PlayButton")
 theme_override_styles/normal = SubResource("StyleBoxFlat_slhe1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_00l4x")
 script = ExtResource("10_77ila")

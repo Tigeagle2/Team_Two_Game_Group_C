@@ -20,6 +20,7 @@ var flashbang_active: bool = false
 var flashbang_cooldown: float = 5.0
 var flashbang_countdown
 var dead_backup_counter: float = 5
+var can_update_animation: bool = true
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	player.get_node("weapons").get_node("special_weapon").special_weapon_activated.connect(_on_special_weapon_activated)
@@ -46,7 +47,7 @@ func _process(delta: float) -> void:
 		if dead_backup_counter <= 0:
 			queue_free()
 func _physics_process(delta):
-	if active:
+	if active and not dead:
 		# recalculate position every 10 frames
 		if player and Engine.get_physics_frames() % 10 == 0:
 			nav_agent.target_position = player.global_position
@@ -69,6 +70,8 @@ func _physics_process(delta):
 		velocity += knockback_velocity
 		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.1)
 		move_and_slide()
+		if abs(velocity.x) > 1.0:
+			$AnimatedSprite2D.flip_h = velocity.x < 0
 	else:
 		velocity = knockback_velocity
 		knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.1)
@@ -107,7 +110,11 @@ func take_damage(self_damage: int):
 		gamemanager.special_charge += 0.5
 		gamemanager.score += 10
 		audiomanager.play_sound_effect(death_sound, global_position)
+		update_animation(3)
+		await $AnimatedSprite2D.animation_finished
 		queue_free()
+	elif health > 0 && not dead:
+		update_animation(2)
 func take_knockback(amount: int):
 	var push_direction = (self.global_position - player.global_position).normalized()
 	knockback_velocity = push_direction * amount
@@ -118,3 +125,18 @@ func _on_special_weapon_activated():
 		$CollisionShape2D.set_deferred("disabled", true)
 		flashbang_countdown = flashbang_cooldown
 		take_damage(5)
+func update_animation(type: int):
+	if type == 1 && can_update_animation:
+		$AnimatedSprite2D.play("run")
+	elif type == 2 && can_update_animation:
+		can_update_animation = false
+		$AnimatedSprite2D.play("hit", 3.0)
+		$hitbox/CollisionShape2D.set_deferred("disabled",true)
+		await $AnimatedSprite2D.animation_finished
+		$hitbox/CollisionShape2D.set_deferred("disabled", false)
+		can_update_animation = true
+		$AnimatedSprite2D.play("run")
+	elif  type == 3 && can_update_animation:
+		can_update_animation = false
+		$hitbox/CollisionShape2D.set_deferred("disabled",true)
+		$AnimatedSprite2D.play("death")
