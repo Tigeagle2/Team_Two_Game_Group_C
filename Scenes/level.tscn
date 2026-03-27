@@ -1336,119 +1336,120 @@ scale = Vector2(0.02222455, 0.113207564)
 position = Vector2(-248, -215.5)
 scale = Vector2(0.02222455, 0.113207564)
 
-[node name="street_light" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-461, 8)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light2" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-230.5, 4)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light3" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-912.99994, 0.9999999)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light3" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-456.49997, 0.49999994)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light4" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-1355, 1.0000005)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light4" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-677.5, 0.50000024)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light5" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-2.0000305, -440.00006)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light5" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-1.0000153, -220.00003)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light6" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(464, 5.9999995)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light6" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(232, 2.9999998)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light7" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(9.000092, -909)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light7" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(4.500046, -454.5)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light8" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(915, -3.0000005)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light8" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(457.5, -1.5000002)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light9" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(1417, 15.9999695)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light9" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(708.5, 7.9999847)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light10" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(6.0000005, 438)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light10" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(3.0000002, 219)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light2" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-1.999939, 860.0001)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light11" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-0.9999695, 430.00006)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light11" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-385.99997, 1104.0001)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light12" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-192.99998, 552.00006)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light12" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-980, 1126.0001)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light13" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-490, 563.00006)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light13" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-432.99997, -724)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light14" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-216.49998, -362)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light14" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-893.99994, -727)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light15" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-446.99997, -363.5)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light15" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-1357, -727.00006)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light16" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-678.5, -363.50003)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light16" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(416, 416)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light17" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(208, 208)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light17" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(809.99994, 422.99997)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light18" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(404.99997, 211.49998)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light18" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(420.99997, 835.99994)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light19" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(210.49998, 417.99997)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="directional_light" parent="." instance=ExtResource("4_81xng")]
-position = Vector2(1048, -301.99997)
-rotation = 4.712389
-scale = Vector2(14.506149, 5.8281245)
+[node name="directional_light" parent="lights" instance=ExtResource("4_81xng")]
+position = Vector2(524, -150.99998)
+rotation = -1.5707964
+scale = Vector2(7.2530746, 2.9140623)
 blend_mode = 0
 
-[node name="directional_light2" parent="." instance=ExtResource("4_81xng")]
-position = Vector2(590, -298)
-rotation = 4.712389
-scale = Vector2(14.506149, 5.8281245)
+[node name="directional_light2" parent="lights" instance=ExtResource("4_81xng")]
+position = Vector2(295, -149)
+rotation = -1.5707964
+scale = Vector2(7.2530746, 2.9140623)
 blend_mode = 0
 
-[node name="street_light19" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(797.99994, 821.99994)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light20" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(398.99997, 410.99997)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light20" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(1205, 410.99997)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light21" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(602.5, 205.49998)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light21" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(1170, 819)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light22" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(585, 409.5)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light22" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-1106, 773.99994)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light23" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-553, 386.99997)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light23" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-560.00024, 789)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light24" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-280.00012, 394.5)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light24" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-519.00024, 363.99997)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light25" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-259.50012, 181.99998)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="street_light25" parent="." instance=ExtResource("2_d3deu")]
-position = Vector2(-1162.0002, 363.99997)
-scale = Vector2(5.1818175, 5.031477)
+[node name="street_light26" parent="lights" instance=ExtResource("2_d3deu")]
+position = Vector2(-581.0001, 181.99998)
+scale = Vector2(2.5909088, 2.5157385)
 
-[node name="directional_light3" parent="." instance=ExtResource("4_81xng")]
-position = Vector2(-578, -128)
+[node name="directional_light3" parent="lights" instance=ExtResource("4_81xng")]
+position = Vector2(-289, -64)
 rotation = 1.5707964
+scale = Vector2(0.99999994, 0.99999994)
 blend_mode = 0
