@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cbyjsy2518063" path="res://Scenes/car_spawner.tscn" id="4_x6ack"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6ev3c"]
-vertices = PackedVector2Array(1363, -851, 1325, 499, 947, 499, -371, -83, -371, -589, 1363, 1011, 1325, 973, -1299, 1011, 947, 973, 685, 973, 307, 973, -1299, -851, -781, -589, 307, 499, -627, 621, -627, 307, -1069, 621, -1069, 307, -1101, -83, -781, -83, -819, -83, -819, -429, 685, 499, -1101, -429)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 5, 6, 1), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 8, 7), PackedInt32Array(10, 9, 7), PackedInt32Array(11, 0, 4, 12), PackedInt32Array(13, 10, 14, 15, 3), PackedInt32Array(14, 10, 7, 16), PackedInt32Array(17, 16, 7, 11, 18), PackedInt32Array(12, 19, 20, 21), PackedInt32Array(2, 8, 9, 22), PackedInt32Array(3, 2, 22), PackedInt32Array(3, 22, 13), PackedInt32Array(19, 3, 15, 17), PackedInt32Array(20, 19, 17), PackedInt32Array(18, 20, 17), PackedInt32Array(23, 18, 11), PackedInt32Array(23, 11, 12, 21)])
+vertices = PackedVector2Array(947, 499, 621, 269, 1043, 237, 1197, 237, 1325, 499, -621, 339, -621, 685, -627, 621, -627, 307, -371, -83, 1011, -243, 1261, -243, 1197, 83, 1043, 83, 1261, -781, 1363, -787, 563, -787, 339, -781, 1363, 1011, 1325, 973, -1299, 1011, 947, 973, 685, 973, 307, 973, -403, 685, -403, 339, 307, 499, 621, 83, 403, 83, 403, 269, -755, 237, -755, 83, -781, -83, -941, 83, -819, -83, -1101, -83, 589, -397, 461, -397, 461, -499, 1139, -499, 1139, -397, 1011, -397, 589, -243, 339, -243, -371, -589, -781, -589, -819, -429, 685, 499, -1069, 307, -1069, 339, -1229, 339, -1299, -851, -1011, 685, -1011, 621, -1229, 685, 563, -851, -941, 237, -1101, -429)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(11, 14, 15, 4), PackedInt32Array(16, 15, 14, 17), PackedInt32Array(15, 18, 19, 4), PackedInt32Array(11, 4, 3, 12), PackedInt32Array(19, 18, 20, 21), PackedInt32Array(22, 21, 20), PackedInt32Array(23, 22, 20), PackedInt32Array(24, 25, 26, 23), PackedInt32Array(24, 23, 20, 6), PackedInt32Array(2, 1, 27, 13), PackedInt32Array(9, 13, 27), PackedInt32Array(9, 27, 28), PackedInt32Array(9, 28, 29, 26, 25, 30, 31), PackedInt32Array(32, 9, 31, 33), PackedInt32Array(34, 32, 33), PackedInt32Array(35, 34, 33), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(39, 40, 41), PackedInt32Array(36, 39, 41, 42), PackedInt32Array(42, 41, 10), PackedInt32Array(42, 10, 9), PackedInt32Array(43, 42, 9), PackedInt32Array(43, 9, 44, 17), PackedInt32Array(45, 32, 34, 46), PackedInt32Array(0, 21, 22, 47), PackedInt32Array(1, 0, 47), PackedInt32Array(1, 47, 26, 29), PackedInt32Array(48, 49, 50, 51, 35), PackedInt32Array(52, 53, 7, 6), PackedInt32Array(52, 6, 20), PackedInt32Array(54, 52, 20), PackedInt32Array(54, 20, 51, 50), PackedInt32Array(51, 55, 16, 17), PackedInt32Array(51, 17, 44, 45), PackedInt32Array(25, 5, 8), PackedInt32Array(30, 25, 8), PackedInt32Array(30, 8, 48, 56), PackedInt32Array(45, 46, 57, 51), PackedInt32Array(33, 56, 48, 35), PackedInt32Array(51, 57, 35)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1344, -896, -1344, 1056, 1408, 1056, 1408, -896)])
 agent_radius = 45.0
 
@@ -22,8 +22,6 @@ navigation_polygon = SubResource("NavigationPolygon_6ev3c")
 metadata/_edit_lock_ = true
 
 [node name="Level" parent="level/NavigationRegion2D" instance=ExtResource("1_x6ack")]
-show_behind_parent = true
-metadata/_edit_lock_ = true
 
 [node name="car_spawners" type="Node" parent="."]
 
@@ -76,23 +74,48 @@ spawn_group_size = 2
 amount_at_start = 0
 
 [node name="enemy_spawner6" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
-position = Vector2(717, -487)
+position = Vector2(828, -455)
 enemy_spawn_limit = 75
 spawn_group_size = 5
 
 [node name="enemy_spawner7" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
-position = Vector2(-740, -655)
+position = Vector2(-966, -724)
 selected_enemy = 1
 enemy_spawn_limit = 5
 spawn_group_size = 1
 amount_at_start = 0
 
 [node name="enemy_spawner8" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
-position = Vector2(-609, -655)
+position = Vector2(-637, -724)
 random_spawn = true
 enemy_spawn_limit = 45
 spawn_group_size = 5
 amount_at_start = 0
+
+[node name="enemy_spawner9" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
+position = Vector2(-848, -3)
+random_spawn = true
+enemy_spawn_limit = 15
+amount_at_start = 0
+
+[node name="enemy_spawner10" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
+position = Vector2(714, -447)
+selected_enemy = 1
+enemy_spawn_limit = 5
+spawn_group_size = 1
+amount_at_start = 1
+
+[node name="enemy_spawner11" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
+position = Vector2(-1, 456)
+enemy_spawn_limit = 25
+amount_at_start = 10
+
+[node name="enemy_spawner12" parent="enemy_spawners" instance=ExtResource("4_iacmt")]
+position = Vector2(38, -517)
+selected_enemy = 1
+random_spawn = true
+enemy_spawn_limit = 2
+spawn_group_size = 1
 
 [node name="player" parent="." instance=ExtResource("1_52fb6")]
 position = Vector2(-581, -105)
