@@ -4,7 +4,6 @@ extends Button
 var label: Label
 
 func _ready():
-	# Grab the first Label child, whatever it's named
 	for child in get_children():
 		if child is Label:
 			label = child
@@ -32,3 +31,8 @@ func _tween_intensity(target: float) -> void:
 		target,
 		0.3
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+
+func _on_pressed() -> void:
+	button_hover.play()
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")

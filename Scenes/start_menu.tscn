@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dwd0wovvggn5f"]
+[gd_scene load_steps=24 format=3 uid="uid://dwd0wovvggn5f"]
 
 [ext_resource type="Shader" uid="uid://72s45q1rqip1" path="res://Scenes/start_menu.gdshader" id="1_jgtwh"]
 [ext_resource type="Texture2D" uid="uid://bci5m0650chai" path="res://Assets/scrolling bg texture.png" id="2_m6uer"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://cmdwvdxnuq6k" path="res://Scenes/Play_text.gdshader" id="6_lfskg"]
 [ext_resource type="AudioStream" uid="uid://cfghlpfts7127" path="res://Assets/Sound_Effects/Menu_Sound.mp3" id="8_lfskg"]
 [ext_resource type="Texture2D" uid="uid://c5ba5tnwpvfpj" path="res://Assets/buildings foreground.png" id="8_ru7em"]
+[ext_resource type="Script" uid="uid://ndld2jkks1dx" path="res://Scenes/exit_button.gd" id="10_77ila"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a43kq"]
 shader = ExtResource("1_jgtwh")
@@ -106,15 +107,16 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 283.0
-offset_top = 34.0
-offset_right = 905.0
-offset_bottom = 147.0
+offset_left = 209.0
+offset_top = 30.0
+offset_right = 944.0
+offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_a43kq")
 theme_override_font_sizes/font_size = 100
-text = "PlaceHolder"
+text = "Midnight Fight"
+metadata/_edit_lock_ = true
 
 [node name="Buildings" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_77ila")
@@ -159,10 +161,10 @@ metadata/_edit_lock_ = true
 
 [node name="Border5" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_626he")
-offset_left = 905.9396
-offset_top = 140.0
-offset_right = 914.45276
-offset_bottom = 781.2156
+offset_left = 954.0363
+offset_top = 149.50262
+offset_right = 961.0469
+offset_bottom = 908.3781
 rotation = 1.5707964
 metadata/_edit_lock_ = true
 
@@ -178,7 +180,7 @@ offset_right = 678.0
 offset_bottom = 392.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_slhe1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_00l4x")
-script = ExtResource("5_i2i62")
+script = ExtResource("10_77ila")
 
 [node name="ExitText" type="Label" parent="ExitButton"]
 material = SubResource("ShaderMaterial_qnxl2")
@@ -191,5 +193,7 @@ text = "Exit"
 
 [connection signal="mouse_entered" from="PlayButton" to="PlayButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="PlayButton" to="PlayButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]
 [connection signal="mouse_entered" from="ExitButton" to="ExitButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ExitButton" to="ExitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_pressed"]
