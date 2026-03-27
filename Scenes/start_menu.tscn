@@ -1,3 +1,195 @@
-[gd_scene format=3 uid="uid://dwd0wovvggn5f"]
+[gd_scene load_steps=23 format=3 uid="uid://dwd0wovvggn5f"]
+
+[ext_resource type="Shader" uid="uid://72s45q1rqip1" path="res://Scenes/start_menu.gdshader" id="1_jgtwh"]
+[ext_resource type="Texture2D" uid="uid://bci5m0650chai" path="res://Assets/scrolling bg texture.png" id="2_m6uer"]
+[ext_resource type="AudioStream" uid="uid://1xqrlj5t2g0w" path="res://Assets/Music/menu music retro game.mp3" id="3_m6uer"]
+[ext_resource type="FontFile" uid="uid://bogwa3fuaegwo" path="res://Fonts/SUB URBAN City.ttf" id="4_a43kq"]
+[ext_resource type="Shader" uid="uid://cthynb376xch0" path="res://Scenes/start_menu_border.gdshader" id="5_8u0lp"]
+[ext_resource type="Script" uid="uid://chqw5kirbe0ga" path="res://Scenes/play_button.gd" id="5_i2i62"]
+[ext_resource type="Shader" uid="uid://cmdwvdxnuq6k" path="res://Scenes/Play_text.gdshader" id="6_lfskg"]
+[ext_resource type="AudioStream" uid="uid://cfghlpfts7127" path="res://Assets/Sound_Effects/Menu_Sound.mp3" id="8_lfskg"]
+[ext_resource type="Texture2D" uid="uid://c5ba5tnwpvfpj" path="res://Assets/buildings foreground.png" id="8_ru7em"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a43kq"]
+shader = ExtResource("1_jgtwh")
+shader_parameter/speed = 0.1
+shader_parameter/pulse_speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8u0lp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a43kq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_626he"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2i62"]
+shader = ExtResource("6_lfskg")
+shader_parameter/pulse_speed = 2.0
+shader_parameter/pulse_strength = 0.3
+shader_parameter/hover_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfskg"]
+shader = ExtResource("5_8u0lp")
+shader_parameter/pulse_speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77ila"]
+shader = ExtResource("5_8u0lp")
+shader_parameter/pulse_speed = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00l4x"]
+texture = ExtResource("8_ru7em")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_626he"]
+shader = ExtResource("5_8u0lp")
+shader_parameter/pulse_speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rpttd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slhe1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00l4x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxl2"]
+shader = ExtResource("6_lfskg")
+shader_parameter/pulse_speed = 2.0
+shader_parameter/pulse_strength = 0.3
+shader_parameter/hover_intensity = 1.0
 
 [node name="start_menu" type="Node2D"]
+
+[node name="PatternBG" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_a43kq")
+offset_right = 1153.0
+offset_bottom = 654.0
+texture = ExtResource("2_m6uer")
+metadata/_edit_lock_ = true
+
+[node name="Main Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_m6uer")
+autoplay = true
+parameters/looping = true
+
+[node name="PlayButton" type="Button" parent="."]
+material = SubResource("ShaderMaterial_8u0lp")
+offset_left = 482.0
+offset_top = 190.0
+offset_right = 700.0
+offset_bottom = 296.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_hover_color = Color(0.5649615, 0.56496155, 0.5649626, 1)
+theme_override_fonts/font = ExtResource("4_a43kq")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_a43kq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_626he")
+script = ExtResource("5_i2i62")
+metadata/_edit_lock_ = true
+
+[node name="PlayText" type="Label" parent="PlayButton"]
+material = SubResource("ShaderMaterial_i2i62")
+layout_mode = 0
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 135.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("4_a43kq")
+theme_override_font_sizes/font_size = 75
+text = "Play"
+metadata/_edit_lock_ = true
+
+[node name="GameName" type="Label" parent="."]
+material = SubResource("ShaderMaterial_lfskg")
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 283.0
+offset_top = 34.0
+offset_right = 905.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_a43kq")
+theme_override_font_sizes/font_size = 100
+text = "PlaceHolder"
+
+[node name="Buildings" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_77ila")
+offset_left = -3.0
+offset_right = 1148.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_00l4x")
+metadata/_edit_lock_ = true
+
+[node name="Border1" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_626he")
+offset_top = 1.0
+offset_right = 7.0
+offset_bottom = 658.0
+metadata/_edit_lock_ = true
+
+[node name="Border2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_626he")
+offset_left = 1146.0
+offset_top = -3.0
+offset_right = 1153.0
+offset_bottom = 654.0
+metadata/_edit_lock_ = true
+
+[node name="Border3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_626he")
+offset_left = 1153.0
+offset_top = 641.0
+offset_right = 1160.0
+offset_bottom = 1794.3235
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="Border4" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_626he")
+offset_left = 1162.0
+offset_right = 1169.0
+offset_bottom = 1182.676
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="Border5" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_626he")
+offset_left = 905.9396
+offset_top = 140.0
+offset_right = 914.45276
+offset_bottom = 781.2156
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_lfskg")
+
+[node name="ExitButton" type="Button" parent="."]
+material = SubResource("ShaderMaterial_rpttd")
+offset_left = 516.0
+offset_top = 309.0
+offset_right = 678.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_slhe1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_00l4x")
+script = ExtResource("5_i2i62")
+
+[node name="ExitText" type="Label" parent="ExitButton"]
+material = SubResource("ShaderMaterial_qnxl2")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_a43kq")
+theme_override_font_sizes/font_size = 75
+text = "Exit"
+
+[connection signal="mouse_entered" from="PlayButton" to="PlayButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PlayButton" to="PlayButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ExitButton" to="ExitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ExitButton" to="ExitButton" method="_on_mouse_exited"]
