@@ -35,4 +35,4 @@ func _tween_intensity(target: float) -> void:
 
 func _on_pressed() -> void:
 	button_hover.play()
-	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/story_screen.tscn")
